@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vedant Developers &amp; Builders</title>
+  <meta name="description" content="Vedant Developers & Builders — residential and commercial projects built with care, quality and trust.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reusable icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-spark" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.9 6.6 4.4 10.6 12 12-7.6 1.4-11.1 5.4-12 12-.9-6.6-4.4-10.6-12-12C7.6 10.6 11.1 6.6 12 0Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M5 8.5h3V19H5V8.5ZM6.5 4a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM10 8.5h2.9v1.4c.4-.8 1.4-1.6 3-1.6 3 0 3.6 2 3.6 4.6V19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V8.5Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.3 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <a href="#top" class="logo" aria-label="Vedant Developers &amp; Builders — home">
+      <span class="logo__top">VEDANT</span>
+      <span class="logo__rest">DEVELOPERS&nbsp;&nbsp;&amp;</span>
+      <span class="logo__rest">BUILDERS</span>
+    </a>
+    <button class="pill pill--menu" id="menuOpen" aria-expanded="false" aria-controls="menu">
+      <svg class="pill__icon"><use href="#i-spark"/></svg><span>Menu</span>
+    </button>
+  </header>
+
+  <!-- ============ MENU OVERLAY ============ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__bar">
+      <div class="brandmark brandmark--sm" aria-hidden="true">
+        <svg class="brandmark__sym" viewBox="0 0 64 64"><use href="#i-mark"/></svg>
+        <div class="brandmark__txt"><b>VEDANT</b><span>DEVELOPERS &amp; BUILDERS</span></div>
+      </div>
+      <button class="pill pill--close" id="menuClose" aria-label="Close menu"><svg class="pill__icon"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="menu__grid">
+      <div class="menu__col menu__col--left">
+        <p class="menu__copy">© <span class="js-year">2026</span><br><small>Vedant Developers &amp; Builders. All rights reserved.</small></p>
+        <a href="#contact" class="menu__card js-menu-link">
+          <img src="images/menu-card.jpg" alt="">
+          <span class="pill pill--cream"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Get Started</span></span>
+        </a>
+      </div>
+      <nav class="menu__col menu__col--nav" aria-label="Main">
+        <a href="#top" class="js-menu-link" style="--i:0">Home</a>
+        <a href="#projects" class="js-menu-link" style="--i:1">Projects</a>
+        <a href="#about" class="js-menu-link" style="--i:2">About</a>
+        <a href="#journal" class="js-menu-link" style="--i:3">Journal</a>
+        <a href="#contact" class="js-menu-link" style="--i:4">Contact</a>
+      </nav>
+      <div class="menu__col menu__col--info">
+        <div class="menu__social">
+          <p class="label">SOCIAL</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+            <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+          </div>
+        </div>
+        <div class="menu__contact">
+          <p class="label">CONTACT US</p>
+          <p>Your office address, Street name<br>City, State – PIN code</p>
+          <p>+91 00000 00000<br>hello@vedantdevelopers.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand mark symbol (original placeholder logo) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square">
+        <path d="M6 10 32 56 58 10"/><path d="M17 10 32 37 47 10"/><path d="M28 10h8"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg"><img src="images/hero-bg.jpg" alt=""></div>
+      <div class="hero__card">
+        <div class="hero__media">
+          <img src="images/hero-card.jpg" alt="Featured project">
+          <a href="#projects" class="pill pill--cream hero__cta"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Get Started</span></a>
+        </div>
+        <h1 class="hero__title">Vedant Residency</h1>
+        <p class="hero__text">Our flagship residential project — thoughtfully planned homes with quality construction and timely delivery.</p>
+      </div>
+    </section>
+
+    <!-- ============ WORK COLLECTION ============ -->
+    <section class="work" id="projects">
+      <h2 class="display display--work" data-split>Our Projects</h2>
+
+      <div class="stack">
+        <figure class="card card--a" data-speed="0.06">
+          <div class="card__img"><img src="images/project-1.jpg" alt="Vedant Residency" loading="lazy"></div>
+          <figcaption>Vedant Residency</figcaption>
+        </figure>
+        <div class="stack__side">
+          <div class="intro" data-reveal>
+            <h3 class="intro__title"><svg><use href="#i-star"/></svg>Featured Projects</h3>
+            <p class="lead">A selection of homes and spaces we have planned, built and delivered for families and businesses across the city.</p>
+          </div>
+          <figure class="card card--b" data-speed="-0.08">
+            <div class="card__img"><img src="images/project-2.jpg" alt="Vedant Heights" loading="lazy"></div>
+            <figcaption>Vedant Heights</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stack stack--rev">
+        <figure class="card card--c" data-speed="-0.08">
+          <div class="card__img"><img src="images/project-3.jpg" alt="Vedant Greens" loading="lazy"></div>
+          <figcaption>Vedant Greens</figcaption>
+        </figure>
+        <figure class="card card--d" data-speed="0.06">
+          <div class="card__img"><img src="images/project-4.jpg" alt="Vedant Business Park" loading="lazy"></div>
+          <figcaption>Vedant Business Park</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ BRAND SPLIT ============ -->
+    <section class="brand" id="about">
+      <div class="brand__panel">
+        <div class="brandmark" data-reveal>
+          <svg class="brandmark__sym" viewBox="0 0 64 64"><use href="#i-mark"/></svg>
+          <div class="brandmark__txt"><b>VEDANT</b><span>DEVELOPERS &amp; BUILDERS</span></div>
+        </div>
+        <p class="brand__statement" data-split="words">Building homes that stand the test of time.</p>
+      </div>
+      <div class="brand__media"><img src="images/brand.jpg" alt="" loading="lazy" data-speed="0.08"></div>
+    </section>
+
+    <!-- ============ INTERIOR / DESIGN (scroll zoom) ============ -->
+    <section class="zoom" data-progress>
+      <div class="zoom__frame"><img src="images/interior-design.jpg" alt="" loading="lazy"></div>
+      <h2 class="zoom__text"><span>Quality</span><span>Living</span></h2>
+    </section>
+
+    <!-- ============ COLLAGE (sticky scatter) ============ -->
+    <section class="scatter" data-progress>
+      <div class="scatter__sticky">
+        <div class="scatter__stage">
+          <img class="scatter__img" style="--x:-470;--y:-235;--s:.48;--r:-1" src="images/collage-6.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:-265;--y:-300;--s:.55;--r:2" src="images/collage-1.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:180;--y:-290;--s:.52;--r:-2" src="images/collage-2.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:380;--y:-200;--s:.45;--r:1" src="images/collage-3.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:-500;--y:190;--s:.63;--r:2" src="images/collage-7.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:-270;--y:300;--s:.48;--r:-1" src="images/collage-4.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:290;--y:150;--s:.55;--r:1" src="images/collage-5.jpg" alt="" loading="lazy">
+          <img class="scatter__img" style="--x:450;--y:300;--s:.48;--r:-2" src="images/collage-8.jpg" alt="" loading="lazy">
+          <div class="scatter__text">
+            <h2>Building<br>Trust Since<br>Day One</h2>
+            <p>Every project we take on is planned with care, built with certified materials and delivered with complete transparency.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNAL ============ -->
+    <section class="journal" id="journal">
+      <h2 class="display display--center" data-split>Latest Updates</h2>
+      <p class="lead lead--center" data-reveal>News, construction progress and helpful guides for home buyers.</p>
+      <div class="journal__grid">
+        <article class="post" data-reveal style="--d:0">
+          <div class="post__img"><img src="images/journal-1.jpg" alt="" loading="lazy"></div>
+          <h3>Five things to check before you book a new home</h3>
+          <a href="#" class="post__read"><svg><use href="#i-spark"/></svg>Read</a>
+        </article>
+        <article class="post" data-reveal style="--d:1">
+          <div class="post__img"><img src="images/journal-2.jpg" alt="" loading="lazy"></div>
+          <h3>Construction update: structure work completed on schedule</h3>
+          <a href="#" class="post__read"><svg><use href="#i-spark"/></svg>Read</a>
+        </article>
+        <article class="post" data-reveal style="--d:2">
+          <div class="post__img"><img src="images/journal-3.jpg" alt="" loading="lazy"></div>
+          <h3>Why material quality matters for a home that lasts</h3>
+          <a href="#" class="post__read"><svg><use href="#i-spark"/></svg>Read</a>
+        </article>
+      </div>
+      <a href="#" class="pill pill--tan journal__more" data-reveal><svg class="pill__icon"><use href="#i-spark"/></svg><span>Explore More</span></a>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section class="team">
+      <div class="team__head">
+        <h2 class="display" data-split>Meet our team</h2>
+        <p class="lead" data-reveal>Engineers, planners and site experts who bring every project from drawing board to handover.</p>
+      </div>
+      <div class="stack stack--team">
+        <figure class="card card--e" data-speed="0.05">
+          <div class="card__img"><img src="images/team-1.jpg" alt="" loading="lazy"></div>
+          <figcaption>Name Surname – Founder &amp; Managing Director</figcaption>
+        </figure>
+        <div class="stack__side">
+          <figure class="card card--f" data-speed="-0.06">
+            <div class="card__img"><img src="images/team-2.jpg" alt="" loading="lazy"></div>
+            <figcaption>Name Surname – Head of Projects</figcaption>
+          </figure>
+          <div class="intro intro--team" data-reveal>
+            <h3 class="intro__title intro__title--tan"><svg><use href="#i-star"/></svg>Experience You Can Trust</h3>
+            <p class="lead">From land acquisition and approvals to construction and after-sales care, our team handles every step in-house.</p>
+            <a href="#contact" class="pill pill--tan"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Meet Team</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CRAFTING SPACES ============ -->
+    <section class="spaces">
+      <div class="spaces__head">
+        <h2 class="spaces__title" data-split>Building Spaces for</h2>
+        <div class="rotator" aria-live="polite">
+          <span class="rotator__word is-active">Families</span>
+          <span class="rotator__word">Residential</span>
+          <span class="rotator__word">Commercial</span>
+          <span class="rotator__word">Retail</span>
+          <span class="rotator__word">Offices</span>
+          <span class="rotator__word">Villas</span>
+          <span class="rotator__word">Townships</span>
+          <span class="rotator__word">You</span>
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="marquee__track">
+          <img src="images/space-1.jpg" alt="" loading="lazy">
+          <img src="images/space-2.jpg" alt="" loading="lazy">
+          <img src="images/space-3.jpg" alt="" loading="lazy">
+          <img src="images/space-4.jpg" alt="" loading="lazy">
+          <img src="images/space-5.jpg" alt="" loading="lazy">
+          <img src="images/space-6.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="footer__boxes">
+      <nav class="footer__box footer__nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer__box footer__info">
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+        </div>
+        <div class="footer__cols">
+          <div>
+            <p class="label">CONTACT US</p>
+            <p>Your office address, Street name<br>City, State – PIN code</p>
+          </div>
+          <div>
+            <p class="footer__year">© <span class="js-year">2026</span></p>
+            <p class="small">Vedant Developers &amp; Builders. All rights reserved.</p>
+          </div>
+        </div>
+        <div class="footer__call">
+          <p>Call or write to us</p>
+          <a href="tel:+910000000000">+91 00000 00000</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__word" data-split>Vedant Developers</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
