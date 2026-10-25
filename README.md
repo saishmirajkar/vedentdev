@@ -64,19 +64,16 @@ How the lead forms work:
 
 ## Images
 
-All images in `images/` are generated placeholders. Replace each with a real photo or render **using the same file name**.
-
-| File(s) | Used for |
+| Folder / file | What it is |
 | --- | --- |
-| `hero-bg.jpg` | Home page hero background (1920 × 1080) |
-| `elevation-day.jpg`, `elevation-night.jpg`, `elevation-tall.jpg` | Building elevation renders |
-| `amenity-pool.jpg`, `amenity-clubhouse.jpg`, `amenity-garden.jpg` | Amenity CGI renders |
-| `interior-design.jpg`, `project-1.jpg`, `project-2.jpg` | Interior renders |
-| `pano-living.jpg`, `pano-bedroom.jpg`, `pano-balcony.jpg` | 360° virtual tour (wide panoramas, ~4000 × 1000) |
-| `update-1.jpg` … `update-3.jpg` | Construction update photos |
-| `team-1.jpg`, `team-2.jpg`, `journal-1.jpg` | Founder photos |
-| `brand.jpg`, `collage-*.jpg`, `space-*.jpg`, `journal-*.jpg` | Home and About page imagery |
-| `plans/*.svg` | Floor plans, typical floor, master plan, location map (indicative — replace with architect's drawings, SVG/PNG/JPG) |
+| `images/building/render.jpg` | Your building render (used in the hero, camera tour, gallery and brochure) |
+| `images/building/blueprint.jpg` | Line drawing generated from the render, used for the "blueprint to building" hero animation |
+| `images/building/detail-*.jpg` | Close-up crops of the render (rooftop, balconies, greens, entrance, facade, street) |
+| `images/photos/*.jpg` | Real photos from Unsplash (free licence, commercial use allowed). They are **representative** interiors, amenities and lifestyle images, labelled as such on the site. See `CREDITS.md`. |
+| `images/plans/*.svg` | Indicative floor plans, master plan and location map — replace with the architect's drawings |
+| `images/update-*.jpg` | Placeholder construction-update images — replace with real site photos |
+
+When you get more renders (interiors, clubhouse, pool), drop them in and swap the file names in the HTML. If you replace `render.jpg`, regenerate `blueprint.jpg` too (or ask for it to be regenerated).
 
 The brochure uses PNG copies of the plans in `brochure/plans/` — replace those too.
 
@@ -86,6 +83,15 @@ The brochure uses PNG copies of the plans in `brochure/plans/` — replace those
 2. Re-export the PDF: run a local server (`python3 -m http.server 8000`), then `node tools/export-brochure.js` (needs Playwright), or open the page in Chrome → Print → Save as PDF with "Background graphics" on, A4 landscape, no margins.
 
 ## Animations
+
+Home page, top to bottom:
+- **Loader**: the "V" mark draws itself with a 0–100 counter (first visit only), then the curtain lifts. Every internal link closes the curtain before the next page opens.
+- **Rise**: the blueprint drawing sketches in, then the real building rises floor by floor as you scroll (Blueprint → Foundation → Structure → Facade → Home), expands to full screen and reveals the call to action.
+- **Word fill**: the belief statement lights up word by word as you scroll.
+- **Camera tour**: the view flies over the render to the rooftop, balconies, planters and entrance, with a pulsing marker on each feature.
+- **Residences**: vertical scrolling moves a horizontal strip of 1, 2 and 3 BHK cards.
+- **Scatter collage**, **expanding generation panels**, **amenity list with floating photo preview**, **"Elevated" cut out of the render**, **parallax interior columns**, **founder monograms**, **rotating word with photo marquee**, **parallax call to action**.
+- Site-wide: smooth scrolling (Lenis), custom cursor with labels, magnetic buttons, image wipe reveals, subtle film grain.
 
 - Letter-by-letter heading reveals (`data-split`), word-by-word (`data-split="words"`), fade-up blocks (`data-reveal`).
 - Scroll parallax (`data-speed`), zoom section, sticky scatter collage, rotating word and endless photo strip.

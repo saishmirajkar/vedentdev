@@ -7,10 +7,18 @@
   <meta name="description" content="The story, philosophy and promise of Vedant Developers & Builders, founded by Yash Parab, Pandhari Parab and Aarti Parab.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Loader / page curtain -->
+  <div class="loader" aria-hidden="true">
+    <svg class="loader__mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path pathLength="1" d="M6 10 32 56 58 10"/><path pathLength="1" d="M17 10 32 37 47 10"/><path pathLength="1" d="M28 10h8"/></g></svg>
+    <p class="loader__name">Vedant Developers &amp; Builders</p>
+    <p class="loader__count"><span>0</span>%</p>
+  </div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><b class="cursor__label"></b></span></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Icons -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -72,7 +80,7 @@
       <div class="menu__col menu__col--left">
         <p class="menu__copy">© <span class="js-year">2026</span><br><small>Vedant Developers &amp; Builders. All rights reserved.</small></p>
         <a href="project.html" class="menu__card js-menu-link">
-          <img src="images/elevation-day.jpg" alt="">
+          <img src="images/building/render-sm.jpg" alt="">
           <span class="pill pill--cream"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Explore Project</span></span>
         </a>
       </div>
@@ -110,7 +118,7 @@
     <section class="phero">
       <p class="eyebrow" data-reveal>About Us · Vedant Developers and Builders</p>
       <h1 class="phero__title" data-split>Creating Spaces Where Life Feels Alive</h1>
-      <div class="phero__media"><img src="images/brand.jpg" alt="" data-speed="0.06"></div>
+      <div class="phero__media"><img src="images/building/render.jpg" alt="Vedant Residency render" data-speed="0.06"></div>
     </section>
 
     <!-- ============ INTRO ============ -->
@@ -127,19 +135,10 @@
         <h2 class="display" data-split>Our founders</h2>
         <p class="lead" data-reveal>Founded by Yash Parab, Pandhari Parab, and Aarti Parab, Vedant Developers and Builders was born from a simple yet powerful vision — to create living spaces where modern lifestyle blends beautifully with the harmony of nature, creating homes that feel truly alive.</p>
       </div>
-      <div class="founders">
-        <figure class="card founder" data-speed="0.05">
-          <div class="card__img"><img src="images/team-1.jpg" alt="Yash Parab" loading="lazy"></div>
-          <figcaption>Yash Parab – Founder</figcaption>
-        </figure>
-        <figure class="card founder founder--mid" data-speed="-0.05">
-          <div class="card__img"><img src="images/team-2.jpg" alt="Pandhari Parab" loading="lazy"></div>
-          <figcaption>Pandhari Parab – Founder</figcaption>
-        </figure>
-        <figure class="card founder" data-speed="0.03">
-          <div class="card__img"><img src="images/journal-1.jpg" alt="Aarti Parab" loading="lazy"></div>
-          <figcaption>Aarti Parab – Founder</figcaption>
-        </figure>
+      <div class="founders2__row founders2__row--about">
+        <div class="mono" data-reveal style="--d:0"><span class="mono__ini">YP</span><p class="mono__name">Yash Parab</p><p class="mono__role">Founder</p></div>
+        <div class="mono" data-reveal style="--d:1"><span class="mono__ini">PP</span><p class="mono__name">Pandhari Parab</p><p class="mono__role">Founder</p></div>
+        <div class="mono" data-reveal style="--d:2"><span class="mono__ini">AP</span><p class="mono__name">Aarti Parab</p><p class="mono__role">Founder</p></div>
       </div>
       <div class="prose-split prose-split--flush">
         <div class="prose-split__label" data-reveal><svg><use href="#i-star"/></svg>Our journey</div>
@@ -183,7 +182,7 @@
 
     <!-- ============ LIFESTYLE ============ -->
     <section class="brand brand--rev">
-      <div class="brand__media"><img src="images/amenity-garden.jpg" alt="" loading="lazy" data-speed="0.08"></div>
+      <div class="brand__media"><img src="images/photos/pool-garden.jpg" alt="" loading="lazy" data-speed="0.08"></div>
       <div class="brand__panel brand__panel--cream">
         <p class="eyebrow" data-reveal>Designing A Lifestyle, Not Just A Residence</p>
         <div class="brand__body">
@@ -263,6 +262,7 @@
     <svg><use href="#i-whatsapp"/></svg><span>Chat with us</span>
   </a>
 
+  <script src="js/vendor/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

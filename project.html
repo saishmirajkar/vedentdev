@@ -7,10 +7,18 @@
   <meta name="description" content="Vedant Residency: floor plans, amenities, location, construction updates, gallery, virtual tour and enquiries.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Loader / page curtain -->
+  <div class="loader" aria-hidden="true">
+    <svg class="loader__mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path pathLength="1" d="M6 10 32 56 58 10"/><path pathLength="1" d="M17 10 32 37 47 10"/><path pathLength="1" d="M28 10h8"/></g></svg>
+    <p class="loader__name">Vedant Developers &amp; Builders</p>
+    <p class="loader__count"><span>0</span>%</p>
+  </div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><b class="cursor__label"></b></span></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Icons -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -72,7 +80,7 @@
       <div class="menu__col menu__col--left">
         <p class="menu__copy">© <span class="js-year">2026</span><br><small>Vedant Developers &amp; Builders. All rights reserved.</small></p>
         <a href="project.html" class="menu__card js-menu-link">
-          <img src="images/elevation-day.jpg" alt="">
+          <img src="images/building/render-sm.jpg" alt="">
           <span class="pill pill--cream"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Explore Project</span></span>
         </a>
       </div>
@@ -108,7 +116,7 @@
 
     <!-- ============ PROJECT HERO ============ -->
     <section class="hero hero--project">
-      <div class="hero__bg"><img src="images/elevation-day.jpg" alt=""></div>
+      <div class="hero__bg"><img src="images/building/render.jpg" alt="Vedant Residency render"></div>
       <div class="hero__shade"></div>
       <div class="phx">
         <p class="eyebrow eyebrow--light phx__eyebrow">A project by Vedant Developers &amp; Builders</p>
@@ -156,8 +164,8 @@
         </ul>
       </div>
       <div class="overview__media">
-        <div class="overview__img" data-speed="0.05"><img src="images/elevation-tall.jpg" alt="Vedant Residency elevation" loading="lazy"></div>
-        <p class="caption">Artist's impression</p>
+        <div class="overview__img" data-speed="0.05"><img src="images/building/detail-facade.jpg" alt="Facade detail" loading="lazy"></div>
+        <p class="caption">Architectural render</p>
       </div>
     </section>
 
@@ -230,9 +238,9 @@
       <p class="eyebrow eyebrow--light" data-reveal>Amenities</p>
       <h2 class="display display--center display--cream" data-split>Something for every generation</h2>
       <div class="amen__features">
-        <figure class="amen__big" data-reveal style="--d:0"><img src="images/amenity-pool.jpg" alt="" loading="lazy"><figcaption>Swimming pool</figcaption></figure>
-        <figure class="amen__big" data-reveal style="--d:1"><img src="images/amenity-clubhouse.jpg" alt="" loading="lazy"><figcaption>Clubhouse &amp; community hall</figcaption></figure>
-        <figure class="amen__big" data-reveal style="--d:2"><img src="images/amenity-garden.jpg" alt="" loading="lazy"><figcaption>Landscaped garden</figcaption></figure>
+        <figure class="amen__big" data-reveal style="--d:0"><img src="images/photos/pool-dusk.jpg" alt="" loading="lazy"><figcaption>Swimming pool</figcaption></figure>
+        <figure class="amen__big" data-reveal style="--d:1"><img src="images/photos/living-wood.jpg" alt="" loading="lazy"><figcaption>Clubhouse lounge</figcaption></figure>
+        <figure class="amen__big" data-reveal style="--d:2"><img src="images/photos/garden-path.jpg" alt="" loading="lazy"><figcaption>Landscaped garden</figcaption></figure>
       </div>
       <div class="amen__groups">
         <div class="amen__group" data-reveal>
@@ -258,7 +266,7 @@
         <li><svg><use href="#a-power"/></svg>Power backup for common areas</li>
         <li><svg><use href="#a-ev"/></svg>EV charging points</li>
       </ul>
-      <p class="note note--light">Amenity list is proposed and subject to final approvals.</p>
+      <p class="note note--light">Amenity list is proposed and subject to final approvals. Photos are representative.</p>
     </section>
 
     <!-- ============ LOCATION ============ -->
@@ -327,18 +335,18 @@
         </div>
       </div>
       <div class="gallery__grid">
-        <button class="g g--wide" data-cat="exterior" data-lightbox="images/elevation-day.jpg"><img src="images/elevation-day.jpg" alt="Elevation, day" loading="lazy"></button>
-        <button class="g g--tall" data-cat="exterior" data-lightbox="images/elevation-tall.jpg"><img src="images/elevation-tall.jpg" alt="Tower elevation" loading="lazy"></button>
-        <button class="g" data-cat="interior" data-lightbox="images/project-1.jpg"><img src="images/project-1.jpg" alt="Living room" loading="lazy"></button>
-        <button class="g" data-cat="amenities" data-lightbox="images/amenity-pool.jpg"><img src="images/amenity-pool.jpg" alt="Swimming pool" loading="lazy"></button>
-        <button class="g g--wide" data-cat="exterior" data-lightbox="images/elevation-night.jpg"><img src="images/elevation-night.jpg" alt="Elevation, evening" loading="lazy"></button>
-        <button class="g" data-cat="interior" data-lightbox="images/project-2.jpg"><img src="images/project-2.jpg" alt="Bedroom" loading="lazy"></button>
-        <button class="g" data-cat="amenities" data-lightbox="images/amenity-clubhouse.jpg"><img src="images/amenity-clubhouse.jpg" alt="Clubhouse" loading="lazy"></button>
-        <button class="g g--tall" data-cat="interior" data-lightbox="images/team-1.jpg"><img src="images/team-1.jpg" alt="Entrance foyer" loading="lazy"></button>
-        <button class="g g--wide" data-cat="amenities" data-lightbox="images/amenity-garden.jpg"><img src="images/amenity-garden.jpg" alt="Landscaped garden" loading="lazy"></button>
-        <button class="g" data-cat="interior" data-lightbox="images/interior-design.jpg"><img src="images/interior-design.jpg" alt="Interior" loading="lazy"></button>
+        <button class="g g--wide" data-cat="exterior" data-lightbox="images/building/render.jpg"><img src="images/building/render.jpg" alt="Building at dusk" loading="lazy"></button>
+        <button class="g g--tall" data-cat="exterior" data-lightbox="images/building/detail-balconies.jpg"><img src="images/building/detail-balconies.jpg" alt="Curved balconies" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/photos/living-warm.jpg"><img src="images/photos/living-warm.jpg" alt="Living room" loading="lazy"></button>
+        <button class="g" data-cat="amenities" data-lightbox="images/photos/pool-garden.jpg"><img src="images/photos/pool-garden.jpg" alt="Swimming pool" loading="lazy"></button>
+        <button class="g g--wide" data-cat="exterior" data-lightbox="images/building/detail-entrance.jpg"><img src="images/building/detail-entrance.jpg" alt="Entrance" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/photos/bedroom-cozy.jpg"><img src="images/photos/bedroom-cozy.jpg" alt="Bedroom" loading="lazy"></button>
+        <button class="g" data-cat="amenities" data-lightbox="images/photos/gym.jpg"><img src="images/photos/gym.jpg" alt="Fitness centre" loading="lazy"></button>
+        <button class="g g--tall" data-cat="interior" data-lightbox="images/photos/bath-white.jpg"><img src="images/photos/bath-white.jpg" alt="Bathroom" loading="lazy"></button>
+        <button class="g g--wide" data-cat="amenities" data-lightbox="images/building/detail-greens.jpg"><img src="images/building/detail-greens.jpg" alt="Planted balconies" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/photos/kitchen-wood.jpg"><img src="images/photos/kitchen-wood.jpg" alt="Kitchen" loading="lazy"></button>
       </div>
-      <p class="note note--center">All images are artist's impressions.</p>
+      <p class="note note--center">Exterior images are architectural renders. Interior and amenity photos are representative.</p>
     </section>
 
     <!-- ============ VIRTUAL TOUR ============ -->
@@ -346,19 +354,19 @@
       <div class="tour__head">
         <p class="eyebrow eyebrow--light" data-reveal>Virtual Tour</p>
         <h2 class="display display--cream" data-split>Step inside</h2>
-        <p class="lead lead--cream" data-reveal>Drag to look around the sample flat. Switch rooms below.</p>
+        <p class="lead lead--cream" data-reveal>Drag to look around. Switch rooms below.</p>
       </div>
       <div class="pano" data-pano>
-        <div class="pano__view" tabindex="0" aria-label="360 degree view. Drag or use arrow keys to look around." style="background-image:url(images/pano-living.jpg)"></div>
+        <div class="pano__view" tabindex="0" aria-label="360 degree view. Drag or use arrow keys to look around." style="background-image:url(images/photos/living-warm.jpg)"></div>
         <div class="pano__hint"><svg><use href="#i-arrow"/></svg>Drag to explore</div>
         <div class="pano__rooms" role="group" aria-label="Rooms">
-          <button class="is-active" data-src="images/pano-living.jpg">Living room</button>
-          <button data-src="images/pano-bedroom.jpg">Bedroom</button>
-          <button data-src="images/pano-balcony.jpg">Balcony view</button>
+          <button class="is-active" data-src="images/photos/living-warm.jpg">Living room</button>
+          <button data-src="images/photos/kitchen-wood.jpg">Kitchen</button>
+          <button data-src="images/photos/living-modern.jpg">Lounge</button>
         </div>
         <button class="pano__full" aria-label="Full screen"><svg><use href="#i-expand"/></svg></button>
       </div>
-      <p class="note note--light note--center">Sample view. Replace with your 360° photos or link a Matterport / YouTube 360 tour.</p>
+      <p class="note note--light note--center">Representative interiors. Replace with your sample-flat 360° photos or link a Matterport / YouTube 360 tour.</p>
     </section>
 
     <!-- ============ ENQUIRE ============ -->
@@ -399,7 +407,7 @@
 
     <!-- ============ BROCHURE ============ -->
     <section class="brochure-cta" id="brochure">
-      <img class="brochure-cta__img" src="images/elevation-night.jpg" alt="" loading="lazy">
+      <img class="brochure-cta__img" src="images/building/detail-street.jpg" alt="" loading="lazy">
       <div class="brochure-cta__box">
         <p class="eyebrow eyebrow--light">Sales Brochure</p>
         <h2>Get the complete project brochure</h2>
@@ -471,6 +479,7 @@
     <svg><use href="#i-whatsapp"/></svg><span>Chat with us</span>
   </a>
 
+  <script src="js/vendor/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

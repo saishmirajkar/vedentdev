@@ -250,30 +250,52 @@
     });
   }
 
-  /* ---------- 360° panorama viewer ---------- */
+  /* ---------- Panorama viewer: drag or auto-pan across a wide photo ---------- */
   document.querySelectorAll('[data-pano]').forEach(pano => {
     const view = pano.querySelector('.pano__view');
-    let x = 0, dragging = false, startX = 0, startPos = 0, auto = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const set = () => { view.style.backgroundPositionX = `${x}px`; };
+    let x = 0, dir = -1, dragging = false, startX = 0, startPos = 0, imgW = 0;
+    let auto = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const measure = src => {
+      const im = new Image();
+      im.onload = () => {
+        const h = view.clientHeight, w = view.clientWidth;
+        imgW = Math.max(w, h * im.naturalWidth / im.naturalHeight);
+        view.style.backgroundSize = `${imgW}px auto`;
+        if (imgW * im.naturalHeight / im.naturalWidth < h) view.style.backgroundSize = 'cover';
+        x = (w - imgW) / 2; set();
+      };
+      im.src = src;
+    };
+    const set = () => {
+      const min = Math.min(0, view.clientWidth - imgW);
+      x = Math.max(min, Math.min(0, x));
+      view.style.backgroundPosition = `${x}px 50%`;
+    };
     const touched = () => { auto = false; pano.classList.add('is-touched'); };
-    view.addEventListener('pointerdown', e => {
-      dragging = true; startX = e.clientX; startPos = x; touched();
-      view.setPointerCapture(e.pointerId);
-    });
-    view.addEventListener('pointermove', e => { if (dragging) { x = startPos + (e.clientX - startX) * 1.4; set(); } });
+    view.addEventListener('pointerdown', e => { dragging = true; startX = e.clientX; startPos = x; touched(); view.setPointerCapture(e.pointerId); });
+    view.addEventListener('pointermove', e => { if (dragging) { x = startPos + (e.clientX - startX); set(); } });
     ['pointerup', 'pointercancel'].forEach(t => view.addEventListener(t, () => { dragging = false; }));
     view.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') { x += 60; touched(); set(); }
       if (e.key === 'ArrowRight') { x -= 60; touched(); set(); }
     });
     const tick = () => {
-      if (auto && pano.getBoundingClientRect().top < innerHeight) { x -= 0.35; set(); }
+      if (auto && imgW && pano.getBoundingClientRect().top < innerHeight) {
+        const min = Math.min(0, view.clientWidth - imgW);
+        x += dir * 0.4;
+        if (x <= min || x >= 0) dir *= -1;
+        set();
+      }
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
-    pano.querySelectorAll('.pano__rooms button').forEach(b => b.addEventListener('click', () => {
-      pano.querySelectorAll('.pano__rooms button').forEach(o => o.classList.toggle('is-active', o === b));
-      view.style.backgroundImage = `url(${b.dataset.src})`;
+    const first = view.style.backgroundImage.match(/url\(["']?([^"')]+)/);
+    if (first) measure(first[1]);
+    window.addEventListener('resize', () => { const m = view.style.backgroundImage.match(/url\(["']?([^"')]+)/); if (m) measure(m[1]); });
+    pano.querySelectorAll('.pano__rooms button').forEach(btn => btn.addEventListener('click', () => {
+      pano.querySelectorAll('.pano__rooms button').forEach(o => o.classList.toggle('is-active', o === btn));
+      view.style.backgroundImage = `url(${btn.dataset.src})`;
+      measure(btn.dataset.src);
     }));
     const full = pano.querySelector('.pano__full');
     if (full) full.addEventListener('click', () => {
@@ -318,4 +340,237 @@
       form.querySelector('.form-done').hidden = false;
     });
   });
+})();
+
+/* =========================================================
+   V2: loader, page transitions, smooth scroll, cursor, cinematic scroll scenes
+   ========================================================= */
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const range = (v, a, b) => clamp((v - a) / (b - a));
+  const ease = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const store = { get: k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } } };
+
+  /* ---------- Smooth scroll ---------- */
+  let lenis = null;
+  if (window.Lenis && !reduce) {
+    lenis = new window.Lenis({ lerp: 0.09, smoothWheel: true });
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el, { offset: -80 });
+    }));
+  }
+
+  /* ---------- Loader / curtain ---------- */
+  const loader = document.querySelector('.loader');
+  const finishLoad = () => {
+    if (loader) loader.classList.add('is-done');
+    document.body.classList.add('is-loaded');
+    if (lenis) lenis.start();
+  };
+  if (loader) {
+    const isHome = !!document.querySelector('[data-rise]');
+    const first = isHome && !store.get('vd-intro');
+    if (reduce || !first) {
+      loader.classList.add('is-quick');
+      setTimeout(finishLoad, reduce ? 0 : 350);
+    } else {
+      store.set('vd-intro', '1');
+      if (lenis) lenis.stop();
+      const num = loader.querySelector('.loader__count span');
+      const t0 = performance.now(), dur = 1700;
+      const step = now => {
+        const k = clamp((now - t0) / dur);
+        num.textContent = Math.round(ease(k) * 100);
+        if (k < 1) requestAnimationFrame(step); else setTimeout(finishLoad, 200);
+      };
+      requestAnimationFrame(step);
+    }
+    // Curtain on the way out to another page
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank' || a.hasAttribute('download')) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || !/\.html?$|\/$/.test(url.pathname) || (url.pathname === location.pathname)) return;
+      e.preventDefault();
+      loader.classList.add('is-quick');
+      loader.classList.remove('is-done');
+      document.body.classList.add('is-leaving');
+      setTimeout(() => { location.href = url.href; }, 650);
+    });
+    window.addEventListener('pageshow', ev => { if (ev.persisted) { document.body.classList.remove('is-leaving'); finishLoad(); } });
+  } else {
+    document.body.classList.add('is-loaded');
+  }
+
+  /* ---------- Cursor ---------- */
+  const cursor = document.querySelector('.cursor');
+  if (cursor && fine && !reduce) {
+    document.documentElement.classList.add('has-cursor');
+    const dot = cursor.querySelector('.cursor__dot'), ring = cursor.querySelector('.cursor__ring'), label = cursor.querySelector('.cursor__label');
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    const loop = () => {
+      rx = lerp(rx, mx, .18); ry = lerp(ry, my, .18);
+      dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+      requestAnimationFrame(loop);
+    };
+    loop();
+    document.addEventListener('mouseover', e => {
+      const lab = e.target.closest('[data-cursor]');
+      const link = e.target.closest('a, button, [tabindex], .gpanel, .alist__rows li');
+      cursor.classList.toggle('is-label', !!lab);
+      cursor.classList.toggle('is-link', !lab && !!link);
+      label.textContent = lab ? lab.dataset.cursor : '';
+    });
+  }
+
+  /* ---------- Magnetic buttons ---------- */
+  if (fine && !reduce) {
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  /* ---------- Image wipe reveals ---------- */
+  const imgIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); imgIO.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('[data-img-reveal]').forEach(el => imgIO.observe(el));
+
+  /* ---------- Fill text: split into words ---------- */
+  const fills = [...document.querySelectorAll('[data-fill]')].map(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.setAttribute('aria-label', el.textContent.trim());
+    el.innerHTML = words.map(w => `<span class="fw" aria-hidden="true">${w}</span>`).join(' ');
+    return { el, words: [...el.querySelectorAll('.fw')] };
+  });
+
+  /* ---------- Generations panels ---------- */
+  const gpanels = [...document.querySelectorAll('.gpanel')];
+  const openPanel = p => gpanels.forEach(o => o.classList.toggle('is-open', o === p));
+  gpanels.forEach(p => {
+    p.addEventListener('mouseenter', () => openPanel(p));
+    p.addEventListener('focus', () => openPanel(p));
+    p.addEventListener('click', () => openPanel(p));
+  });
+
+  /* ---------- Amenities floating preview ---------- */
+  const float = document.querySelector('.alist__float');
+  if (float && fine) {
+    const fimg = float.querySelector('img');
+    let fx = 0, fy = 0, tx = 0, ty = 0, on = false;
+    document.querySelectorAll('.alist__rows li').forEach(li => {
+      const pre = new Image(); pre.src = li.dataset.img;
+      li.addEventListener('mouseenter', () => { fimg.src = li.dataset.img; on = true; float.classList.add('is-on'); });
+      li.addEventListener('mouseleave', () => { on = false; float.classList.remove('is-on'); });
+    });
+    window.addEventListener('mousemove', e => { tx = e.clientX + 30; ty = e.clientY - 120; }, { passive: true });
+    const loop = () => {
+      fx = lerp(fx, tx, .14); fy = lerp(fy, ty, .14);
+      if (on || float.classList.contains('is-on')) float.style.transform = `translate3d(${fx}px, ${fy}px, 0) scale(${on ? 1 : .8})`;
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
+
+  /* ---------- Scenes ---------- */
+  const rise = document.querySelector('[data-rise]');
+  const riseStages = rise ? [...rise.querySelectorAll('.rise__stages li')] : [];
+  const cam = document.querySelector('[data-camera]');
+  const camImg = cam && cam.querySelector('.camera__img');
+  const camPin = cam && cam.querySelector('.camera__pin');
+  const camSteps = cam ? [...cam.querySelectorAll('.camera__step')] : [];
+  const stops = camSteps.map(s => ({ x: +s.dataset.x, y: +s.dataset.y, z: +s.dataset.z }));
+  const hs = document.querySelector('[data-hscroll]');
+  const hsTrack = hs && hs.querySelector('.hscroll__track');
+  const cut = document.querySelector('[data-cutout] .cutout__word');
+  const mobile = () => innerWidth <= 809;
+
+  const sizeHs = () => {
+    if (!hs) return;
+    if (mobile() || reduce) { hs.style.height = ''; return; }
+    hs.style.height = `${hsTrack.scrollWidth - innerWidth + innerHeight}px`;
+  };
+  sizeHs();
+  window.addEventListener('resize', sizeHs);
+  window.addEventListener('load', sizeHs);
+
+  const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+
+  const frame = () => {
+    const vw = innerWidth, vh = innerHeight;
+
+    if (rise && !reduce) {
+      const p = progress(rise);
+      const r = ease(range(p, .06, .55));
+      const s = rise.style;
+      s.setProperty('--r', r.toFixed(4));
+      s.setProperty('--scan', r > .002 && r < .995 ? 1 : 0);
+      s.setProperty('--tp', ease(range(p, .28, .52)).toFixed(4));
+      s.setProperty('--inset', (1 - ease(range(p, .55, .78))).toFixed(4));
+      const fin = ease(range(p, .72, .9));
+      s.setProperty('--fin', fin.toFixed(4));
+      s.setProperty('--zoom', range(p, .78, 1).toFixed(4));
+      rise.classList.toggle('is-final', fin > .5);
+      const idx = r <= .001 ? 0 : Math.min(4, 1 + Math.floor(r * 4 - 1e-6));
+      riseStages.forEach((li, i) => li.classList.toggle('is-active', i === idx));
+    }
+
+    fills.forEach(({ el, words }) => {
+      const r = el.getBoundingClientRect();
+      const q = clamp((vh * .85 - r.top) / (r.height + vh * .35));
+      const n = Math.round(q * words.length * 1.1);
+      words.forEach((w, i) => w.classList.toggle('on', i < n));
+    });
+
+    if (cam && camImg && stops.length) {
+      const p = reduce ? 0 : progress(cam);
+      const pos = p * (stops.length - 1);
+      const i = Math.min(stops.length - 2, Math.floor(pos));
+      const f = ease(range(pos - i, .3, .85));
+      const a = stops[i], b = stops[i + 1];
+      const x = lerp(a.x, b.x, f), y = lerp(a.y, b.y, f), z = a.z * Math.pow(b.z / a.z, f);
+      const ar = 2400 / 1350;
+      let w = vw, h = vw / ar;
+      if (h < vh) { h = vh; w = vh * ar; }
+      const cx = mobile() ? vw * .5 : vw * .62, cy = mobile() ? vh * .36 : vh * .5;
+      let tx = cx - x * w * z, ty = cy - y * h * z;
+      tx = clamp(tx, vw - w * z, 0); ty = clamp(ty, vh - h * z, 0);
+      camImg.style.width = `${w}px`; camImg.style.height = `${h}px`;
+      camImg.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) scale(${z.toFixed(4)})`;
+      const active = f < .5 ? i : i + 1;
+      camSteps.forEach((s, k) => s.classList.toggle('is-active', k === active));
+      cam.style.setProperty('--cp', p.toFixed(4));
+      if (camPin) {
+        camPin.style.left = `${tx + x * w * z}px`; camPin.style.top = `${ty + y * h * z}px`;
+        camPin.style.setProperty('--pin', z > 1.5 && (f < .15 || f > .85) ? 1 : 0);
+      }
+    }
+
+    if (hs && hsTrack && !mobile() && !reduce) {
+      const p = progress(hs);
+      hsTrack.style.transform = `translate3d(${(-p * (hsTrack.scrollWidth - vw)).toFixed(1)}px, 0, 0)`;
+    }
+
+    if (cut) {
+      const r = cut.getBoundingClientRect();
+      cut.style.setProperty('--bp', `${(clamp((vh - r.top) / (vh + r.height)) * 100).toFixed(1)}%`);
+    }
+
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
 })();
