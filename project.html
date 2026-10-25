@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vedant Residency | Vedant Developers &amp; Builders</title>
+  <meta name="description" content="Vedant Residency: floor plans, amenities, location, construction updates, gallery, virtual tour and enquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-spark" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.9 6.6 4.4 10.6 12 12-7.6 1.4-11.1 5.4-12 12-.9-6.6-4.4-10.6-12-12C7.6 10.6 11.1 6.6 12 0Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M5 8.5h3V19H5V8.5ZM6.5 4a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM10 8.5h2.9v1.4c.4-.8 1.4-1.6 3-1.6 3 0 3.6 2 3.6 4.6V19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V8.5Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.3 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9c-1.5 0-3-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square"><path d="M6 10 32 56 58 10"/><path d="M17 10 32 37 47 10"/><path d="M28 10h8"/></g></symbol>
+    <!-- amenity icons -->
+    <symbol id="a-pool" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 20V7a3 3 0 0 1 6 0M18 20V7a3 3 0 0 1 6 0M10 11h8M10 15h8"/><path d="M3 24c2.2 0 2.2-1.6 4.4-1.6S9.6 24 11.8 24s2.2-1.6 4.4-1.6S18.4 24 20.6 24s2.2-1.6 4.4-1.6S27.2 24 29 24"/></g></symbol>
+    <symbol id="a-gym" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 11v10M10 8v16M22 8v16M26 11v10M10 16h12M3 16h3M26 16h3"/></g></symbol>
+    <symbol id="a-kids" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28 10 4h12l6 24M8 18h16"/><path d="M13 4v10M19 4v10M12 14h8v3h-8z"/></g></symbol>
+    <symbol id="a-senior" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 17h24M6 17v8M26 17v8M5 13h22M7 9h18M7 9v4M25 9v4"/></g></symbol>
+    <symbol id="a-jog" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="19" cy="5.5" r="2.5"/><path d="M8 13l5-3 5 1 3 5 4 1M16 11l-3 8 5 4v6M13 19l-4 5H5"/></g></symbol>
+    <symbol id="a-yoga" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="6" r="2.5"/><path d="M16 9v8M9 13l7 2 7-2M6 25c3-4 7-5 10-5s7 1 10 5M10 25h12"/></g></symbol>
+    <symbol id="a-club" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 14 16 5l12 9M7 12v15h18V12M13 27v-8h6v8"/></g></symbol>
+    <symbol id="a-garden" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28V14M16 18l-5-4M16 21l5-4"/><path d="M16 14c-6 0-9-4-9-8 5 0 9 3 9 8Zm0 0c6 0 9-4 9-8-5 0-9 3-9 8Z"/><path d="M6 28h20"/></g></symbol>
+    <symbol id="a-party" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h8l-1 9a3 3 0 0 1-6 0L9 4ZM13 16v10M9 27h8M21 6l2-2M24 10h3M22 14l2 2"/></g></symbol>
+    <symbol id="a-games" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M5 12.3h22M5 19.6h22M12.3 5v22M19.6 5v22"/></g></symbol>
+    <symbol id="a-shield" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 3 6 7v8c0 7 4.5 11.5 10 14 5.5-2.5 10-7 10-14V7L16 3Z"/><path d="m11 16 4 4 6-7"/></g></symbol>
+    <symbol id="a-ev" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="24" rx="2"/><path d="M13 9l-4 7h5l-3 6M19 12h3a2 2 0 0 1 2 2v8a2 2 0 0 0 4 0V10l-3-3"/></g></symbol>
+    <symbol id="a-lift" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="6" y="3" width="20" height="26" rx="2"/><path d="M16 3v26M10 12l2-3 2 3M18 9l2 3 2-3"/></g></symbol>
+    <symbol id="a-power" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M18 3 7 18h8l-2 11 12-16h-8l1-10Z"/></g></symbol>
+    <symbol id="a-people" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="11" r="3"/><path d="M3 26c0-5 3.6-8 8-8s8 3 8 8M18 19.5c4.5-.6 9 1.6 9 6.5"/></g></symbol>
+    <symbol id="a-heart" viewBox="0 0 32 32"><path d="M16 27S4 19.6 4 11.5A6 6 0 0 1 16 8.6a6 6 0 0 1 12 2.9C28 19.6 16 27 16 27Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="a-sun" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="16" cy="16" r="6"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.8 6.8l2.1 2.1M23.1 23.1l2.1 2.1M6.8 25.2l2.1-2.1M23.1 8.9l2.1-2.1"/></g></symbol>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <a href="index.html" class="logo" aria-label="Vedant Developers &amp; Builders — home">
+      <span class="logo__top">VEDANT</span>
+      <span class="logo__rest">DEVELOPERS&nbsp;&nbsp;&amp;</span>
+      <span class="logo__rest">BUILDERS</span>
+    </a>
+    <button class="pill pill--menu" id="menuOpen" aria-expanded="false" aria-controls="menu">
+      <svg class="pill__icon"><use href="#i-spark"/></svg><span>Menu</span>
+    </button>
+  </header>
+
+  <!-- ============ MENU OVERLAY ============ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__bar">
+      <div class="brandmark brandmark--sm" aria-hidden="true">
+        <svg class="brandmark__sym" viewBox="0 0 64 64"><use href="#i-mark"/></svg>
+        <div class="brandmark__txt"><b>VEDANT</b><span>DEVELOPERS &amp; BUILDERS</span></div>
+      </div>
+      <button class="pill pill--close" id="menuClose" aria-label="Close menu"><svg class="pill__icon"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="menu__grid">
+      <div class="menu__col menu__col--left">
+        <p class="menu__copy">© <span class="js-year">2026</span><br><small>Vedant Developers &amp; Builders. All rights reserved.</small></p>
+        <a href="project.html" class="menu__card js-menu-link">
+          <img src="images/elevation-day.jpg" alt="">
+          <span class="pill pill--cream"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Explore Project</span></span>
+        </a>
+      </div>
+      <nav class="menu__col menu__col--nav" aria-label="Main">
+        <a href="index.html" class="js-menu-link" style="--i:0">Home</a>
+        <a href="about.html" class="js-menu-link" style="--i:1">About Us</a>
+        <a href="project.html" class="js-menu-link" style="--i:2">Our Project</a>
+        <a href="project.html#floor-plans" class="js-menu-link" style="--i:3">Floor Plans</a>
+        <a href="project.html#gallery" class="js-menu-link" style="--i:4">Gallery</a>
+        <a href="project.html#enquire" class="js-menu-link" style="--i:5">Contact</a>
+      </nav>
+      <div class="menu__col menu__col--info">
+        <div class="menu__social">
+          <p class="label">SOCIAL</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+            <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+            <a href="#" class="js-wa" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+          </div>
+        </div>
+        <div class="menu__contact">
+          <p class="label">CONTACT US</p>
+          <p>Site / office address, Street name<br>City, State – PIN code</p>
+          <p>+91 00000 00000<br>hello@vedantdevelopers.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ PROJECT HERO ============ -->
+    <section class="hero hero--project">
+      <div class="hero__bg"><img src="images/elevation-day.jpg" alt=""></div>
+      <div class="hero__shade"></div>
+      <div class="phx">
+        <p class="eyebrow eyebrow--light phx__eyebrow">A project by Vedant Developers &amp; Builders</p>
+        <h1 class="phx__title">Vedant Residency</h1>
+        <p class="phx__tag">Creating Spaces Where Life Feels Alive</p>
+        <div class="phx__cta">
+          <a href="#enquire" class="pill pill--cream"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Enquire Now</span></a>
+          <a href="#brochure" class="pill pill--glass"><svg class="pill__icon"><use href="#i-download"/></svg><span>Download Brochure</span></a>
+          <a href="#tour" class="pill pill--glass"><svg class="pill__icon"><use href="#i-expand"/></svg><span>Virtual Tour</span></a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Configurations</dt><dd>1, 2 &amp; 3 BHK</dd></div>
+        <div><dt>Location</dt><dd>Your City</dd></div>
+        <div><dt>Possession</dt><dd>To be announced</dd></div>
+        <div><dt>MahaRERA No.</dt><dd>To be updated</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ SUB NAV ============ -->
+    <nav class="subnav" aria-label="Project sections">
+      <div class="subnav__inner">
+        <a href="#overview">Overview</a>
+        <a href="#floor-plans">Floor Plans</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+        <a href="#updates">Construction Updates</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#tour">Virtual Tour</a>
+        <a href="#enquire" class="subnav__cta">Enquire</a>
+      </div>
+    </nav>
+
+    <!-- ============ OVERVIEW ============ -->
+    <section class="overview" id="overview">
+      <div class="overview__text">
+        <p class="eyebrow" data-reveal>Overview</p>
+        <h2 class="display" data-split>A home that feels alive</h2>
+        <p class="lead" data-reveal>Vedant Residency brings together modern living and the calm of nature. Homes are planned around light, air and greenery, with amenities that give children, parents and seniors their own places to grow, unwind and connect.</p>
+        <ul class="ticks" data-reveal>
+          <li>Thoughtfully planned 1, 2 &amp; 3 BHK residences</li>
+          <li>Amenities for every generation of the family</li>
+          <li>Landscaped open spaces and a walking track</li>
+          <li>Superior construction quality and transparent dealings</li>
+        </ul>
+      </div>
+      <div class="overview__media">
+        <div class="overview__img" data-speed="0.05"><img src="images/elevation-tall.jpg" alt="Vedant Residency elevation" loading="lazy"></div>
+        <p class="caption">Artist's impression</p>
+      </div>
+    </section>
+
+    <!-- ============ FLOOR PLANS ============ -->
+    <section class="plans" id="floor-plans">
+      <div class="plans__head">
+        <p class="eyebrow" data-reveal>Floor Plans</p>
+        <h2 class="display" data-split>Find your home</h2>
+      </div>
+      <div class="tabs" data-tabs>
+        <div class="tabs__list" role="tablist">
+          <button role="tab" id="tab-1bhk" aria-controls="panel-1bhk" aria-selected="true">1 BHK</button>
+          <button role="tab" id="tab-2bhk" aria-controls="panel-2bhk" aria-selected="false">2 BHK</button>
+          <button role="tab" id="tab-3bhk" aria-controls="panel-3bhk" aria-selected="false">3 BHK</button>
+          <button role="tab" id="tab-typical" aria-controls="panel-typical" aria-selected="false">Typical Floor</button>
+          <button role="tab" id="tab-master" aria-controls="panel-master" aria-selected="false">Master Plan</button>
+        </div>
+
+        <div class="plan" role="tabpanel" id="panel-1bhk" aria-labelledby="tab-1bhk">
+          <button class="plan__img" data-lightbox="images/plans/plan-1bhk.svg" aria-label="Enlarge 1 BHK plan"><img src="images/plans/plan-1bhk.svg" alt="1 BHK floor plan" loading="lazy"><span class="plan__zoom"><svg><use href="#i-expand"/></svg></span></button>
+          <div class="plan__info">
+            <h3>1 BHK Residence</h3>
+            <dl class="specs"><div><dt>Carpet area</dt><dd>___ sq.ft.</dd></div><div><dt>Bedrooms</dt><dd>1</dd></div><div><dt>Toilets</dt><dd>1</dd></div><div><dt>Balcony</dt><dd>Living room</dd></div></dl>
+            <p>A compact, efficient home with a bright living room opening onto a balcony.</p>
+            <a href="#enquire" class="pill pill--tan js-prefill" data-config="1 BHK"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Get Price &amp; Plan</span></a>
+          </div>
+        </div>
+        <div class="plan" role="tabpanel" id="panel-2bhk" aria-labelledby="tab-2bhk" hidden>
+          <button class="plan__img" data-lightbox="images/plans/plan-2bhk.svg" aria-label="Enlarge 2 BHK plan"><img src="images/plans/plan-2bhk.svg" alt="2 BHK floor plan" loading="lazy"><span class="plan__zoom"><svg><use href="#i-expand"/></svg></span></button>
+          <div class="plan__info">
+            <h3>2 BHK Residence</h3>
+            <dl class="specs"><div><dt>Carpet area</dt><dd>___ sq.ft.</dd></div><div><dt>Bedrooms</dt><dd>2</dd></div><div><dt>Toilets</dt><dd>2</dd></div><div><dt>Balcony</dt><dd>Living + deck</dd></div></dl>
+            <p>A family home with a master suite, a dressing area and a private deck.</p>
+            <a href="#enquire" class="pill pill--tan js-prefill" data-config="2 BHK"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Get Price &amp; Plan</span></a>
+          </div>
+        </div>
+        <div class="plan" role="tabpanel" id="panel-3bhk" aria-labelledby="tab-3bhk" hidden>
+          <button class="plan__img" data-lightbox="images/plans/plan-3bhk.svg" aria-label="Enlarge 3 BHK plan"><img src="images/plans/plan-3bhk.svg" alt="3 BHK floor plan" loading="lazy"><span class="plan__zoom"><svg><use href="#i-expand"/></svg></span></button>
+          <div class="plan__info">
+            <h3>3 BHK Residence</h3>
+            <dl class="specs"><div><dt>Carpet area</dt><dd>___ sq.ft.</dd></div><div><dt>Bedrooms</dt><dd>3</dd></div><div><dt>Toilets</dt><dd>2</dd></div><div><dt>Balcony</dt><dd>Living room</dd></div></dl>
+            <p>Generous living and dining, three bedrooms and separate utility space for larger families.</p>
+            <a href="#enquire" class="pill pill--tan js-prefill" data-config="3 BHK"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Get Price &amp; Plan</span></a>
+          </div>
+        </div>
+        <div class="plan" role="tabpanel" id="panel-typical" aria-labelledby="tab-typical" hidden>
+          <button class="plan__img" data-lightbox="images/plans/typical-floor.svg" aria-label="Enlarge typical floor plan"><img src="images/plans/typical-floor.svg" alt="Typical floor plan" loading="lazy"><span class="plan__zoom"><svg><use href="#i-expand"/></svg></span></button>
+          <div class="plan__info">
+            <h3>Typical Floor</h3>
+            <dl class="specs"><div><dt>Homes per floor</dt><dd>4</dd></div><div><dt>Lifts</dt><dd>2</dd></div><div><dt>Staircase</dt><dd>1</dd></div><div><dt>Lobby</dt><dd>Common</dd></div></dl>
+            <p>Four homes per floor around a central core, so every home gets more open sides.</p>
+          </div>
+        </div>
+        <div class="plan" role="tabpanel" id="panel-master" aria-labelledby="tab-master" hidden>
+          <button class="plan__img" data-lightbox="images/plans/master-plan.svg" aria-label="Enlarge master plan"><img src="images/plans/master-plan.svg" alt="Master plan" loading="lazy"><span class="plan__zoom"><svg><use href="#i-expand"/></svg></span></button>
+          <div class="plan__info">
+            <h3>Master Plan</h3>
+            <ol class="legend">
+              <li>Tower A</li><li>Tower B</li><li>Clubhouse</li><li>Swimming pool</li><li>Children's play area</li>
+              <li>Senior citizen court</li><li>Yoga &amp; meditation deck</li><li>Party lawn</li><li>Landscaped gateway</li><li>Jogging track</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <p class="note">Plans are indicative and not to scale. Final areas and layouts will follow the approved drawings.</p>
+    </section>
+
+    <!-- ============ AMENITIES ============ -->
+    <section class="amen" id="amenities">
+      <p class="eyebrow eyebrow--light" data-reveal>Amenities</p>
+      <h2 class="display display--center display--cream" data-split>Something for every generation</h2>
+      <div class="amen__features">
+        <figure class="amen__big" data-reveal style="--d:0"><img src="images/amenity-pool.jpg" alt="" loading="lazy"><figcaption>Swimming pool</figcaption></figure>
+        <figure class="amen__big" data-reveal style="--d:1"><img src="images/amenity-clubhouse.jpg" alt="" loading="lazy"><figcaption>Clubhouse &amp; community hall</figcaption></figure>
+        <figure class="amen__big" data-reveal style="--d:2"><img src="images/amenity-garden.jpg" alt="" loading="lazy"><figcaption>Landscaped garden</figcaption></figure>
+      </div>
+      <div class="amen__groups">
+        <div class="amen__group" data-reveal>
+          <h3>For children</h3>
+          <ul><li><svg><use href="#a-kids"/></svg>Children's play area</li><li><svg><use href="#a-pool"/></svg>Kids' pool</li><li><svg><use href="#a-games"/></svg>Indoor games room</li></ul>
+        </div>
+        <div class="amen__group" data-reveal style="--d:1">
+          <h3>For seniors</h3>
+          <ul><li><svg><use href="#a-senior"/></svg>Senior citizen sit-out</li><li><svg><use href="#a-yoga"/></svg>Yoga &amp; meditation deck</li><li><svg><use href="#a-garden"/></svg>Shaded garden walks</li></ul>
+        </div>
+        <div class="amen__group" data-reveal style="--d:2">
+          <h3>For parents</h3>
+          <ul><li><svg><use href="#a-gym"/></svg>Fitness centre</li><li><svg><use href="#a-jog"/></svg>Jogging track</li><li><svg><use href="#a-pool"/></svg>Swimming pool</li></ul>
+        </div>
+        <div class="amen__group" data-reveal style="--d:3">
+          <h3>For everyone</h3>
+          <ul><li><svg><use href="#a-club"/></svg>Clubhouse</li><li><svg><use href="#a-party"/></svg>Party lawn</li><li><svg><use href="#a-people"/></svg>Community hall</li></ul>
+        </div>
+      </div>
+      <ul class="amen__essentials" data-reveal>
+        <li><svg><use href="#a-shield"/></svg>CCTV &amp; 24×7 security</li>
+        <li><svg><use href="#a-lift"/></svg>High-speed lifts</li>
+        <li><svg><use href="#a-power"/></svg>Power backup for common areas</li>
+        <li><svg><use href="#a-ev"/></svg>EV charging points</li>
+      </ul>
+      <p class="note note--light">Amenity list is proposed and subject to final approvals.</p>
+    </section>
+
+    <!-- ============ LOCATION ============ -->
+    <section class="loc" id="location">
+      <div class="loc__map" data-reveal>
+        <img src="images/plans/location-map.svg" alt="Location map" loading="lazy">
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="pill pill--tan loc__btn"><svg class="pill__icon"><use href="#i-pin"/></svg><span>Open in Google Maps</span></a>
+      </div>
+      <div class="loc__text">
+        <p class="eyebrow" data-reveal>Location Advantages</p>
+        <h2 class="display" data-split>Everything close to home</h2>
+        <ul class="dist">
+          <li data-reveal><span>Railway station</span><b>__ min</b></li>
+          <li data-reveal><span>Highway access</span><b>__ min</b></li>
+          <li data-reveal><span>Schools &amp; colleges</span><b>__ min</b></li>
+          <li data-reveal><span>Hospital</span><b>__ min</b></li>
+          <li data-reveal><span>Market &amp; daily needs</span><b>__ min</b></li>
+          <li data-reveal><span>Shopping mall</span><b>__ min</b></li>
+          <li data-reveal><span>Airport</span><b>__ min</b></li>
+        </ul>
+        <p class="note">Travel times to be added. Landmarks on the map are placeholders.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONSTRUCTION UPDATES ============ -->
+    <section class="updates" id="updates">
+      <div class="updates__head">
+        <p class="eyebrow" data-reveal>Construction Updates</p>
+        <h2 class="display" data-split>Watch it rise</h2>
+      </div>
+      <div class="updates__grid">
+        <div class="progress" data-reveal>
+          <h3>Overall progress</h3>
+          <div class="bar" style="--v:100"><span>Site preparation &amp; excavation</span><b>100%</b><i></i></div>
+          <div class="bar" style="--v:60"><span>Foundation</span><b>60%</b><i></i></div>
+          <div class="bar" style="--v:0"><span>Superstructure (slabs)</span><b>0%</b><i></i></div>
+          <div class="bar" style="--v:0"><span>Finishing works</span><b>0%</b><i></i></div>
+          <p class="note">Sample figures. Update these after each site inspection.</p>
+        </div>
+        <ol class="timeline">
+          <li data-reveal>
+            <img src="images/update-1.jpg" alt="" loading="lazy">
+            <div><time>Month 2026</time><h3>Foundation work in progress</h3><p>Describe the latest milestone reached at site.</p></div>
+          </li>
+          <li data-reveal>
+            <img src="images/update-2.jpg" alt="" loading="lazy">
+            <div><time>Month 2026</time><h3>Excavation completed</h3><p>Describe the latest milestone reached at site.</p></div>
+          </li>
+          <li data-reveal>
+            <img src="images/update-3.jpg" alt="" loading="lazy">
+            <div><time>Month 2026</time><h3>Ground-breaking ceremony</h3><p>Describe the latest milestone reached at site.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery" id="gallery">
+      <div class="gallery__head">
+        <h2 class="display display--center" data-split>Gallery</h2>
+        <div class="filters" role="group" aria-label="Filter gallery">
+          <button class="is-active" data-filter="all">All</button>
+          <button data-filter="exterior">Exterior</button>
+          <button data-filter="interior">Interiors</button>
+          <button data-filter="amenities">Amenities</button>
+        </div>
+      </div>
+      <div class="gallery__grid">
+        <button class="g g--wide" data-cat="exterior" data-lightbox="images/elevation-day.jpg"><img src="images/elevation-day.jpg" alt="Elevation, day" loading="lazy"></button>
+        <button class="g g--tall" data-cat="exterior" data-lightbox="images/elevation-tall.jpg"><img src="images/elevation-tall.jpg" alt="Tower elevation" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/project-1.jpg"><img src="images/project-1.jpg" alt="Living room" loading="lazy"></button>
+        <button class="g" data-cat="amenities" data-lightbox="images/amenity-pool.jpg"><img src="images/amenity-pool.jpg" alt="Swimming pool" loading="lazy"></button>
+        <button class="g g--wide" data-cat="exterior" data-lightbox="images/elevation-night.jpg"><img src="images/elevation-night.jpg" alt="Elevation, evening" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/project-2.jpg"><img src="images/project-2.jpg" alt="Bedroom" loading="lazy"></button>
+        <button class="g" data-cat="amenities" data-lightbox="images/amenity-clubhouse.jpg"><img src="images/amenity-clubhouse.jpg" alt="Clubhouse" loading="lazy"></button>
+        <button class="g g--tall" data-cat="interior" data-lightbox="images/team-1.jpg"><img src="images/team-1.jpg" alt="Entrance foyer" loading="lazy"></button>
+        <button class="g g--wide" data-cat="amenities" data-lightbox="images/amenity-garden.jpg"><img src="images/amenity-garden.jpg" alt="Landscaped garden" loading="lazy"></button>
+        <button class="g" data-cat="interior" data-lightbox="images/interior-design.jpg"><img src="images/interior-design.jpg" alt="Interior" loading="lazy"></button>
+      </div>
+      <p class="note note--center">All images are artist's impressions.</p>
+    </section>
+
+    <!-- ============ VIRTUAL TOUR ============ -->
+    <section class="tour" id="tour">
+      <div class="tour__head">
+        <p class="eyebrow eyebrow--light" data-reveal>Virtual Tour</p>
+        <h2 class="display display--cream" data-split>Step inside</h2>
+        <p class="lead lead--cream" data-reveal>Drag to look around the sample flat. Switch rooms below.</p>
+      </div>
+      <div class="pano" data-pano>
+        <div class="pano__view" tabindex="0" aria-label="360 degree view. Drag or use arrow keys to look around." style="background-image:url(images/pano-living.jpg)"></div>
+        <div class="pano__hint"><svg><use href="#i-arrow"/></svg>Drag to explore</div>
+        <div class="pano__rooms" role="group" aria-label="Rooms">
+          <button class="is-active" data-src="images/pano-living.jpg">Living room</button>
+          <button data-src="images/pano-bedroom.jpg">Bedroom</button>
+          <button data-src="images/pano-balcony.jpg">Balcony view</button>
+        </div>
+        <button class="pano__full" aria-label="Full screen"><svg><use href="#i-expand"/></svg></button>
+      </div>
+      <p class="note note--light note--center">Sample view. Replace with your 360° photos or link a Matterport / YouTube 360 tour.</p>
+    </section>
+
+    <!-- ============ ENQUIRE ============ -->
+    <section class="enquire" id="enquire">
+      <div class="enquire__text">
+        <p class="eyebrow" data-reveal>Enquire</p>
+        <h2 class="display" data-split>Book a site visit</h2>
+        <p class="lead" data-reveal>Share your details and our team will call you back with prices, availability and a time to visit.</p>
+        <div class="enquire__contact" data-reveal>
+          <p class="label">SALES OFFICE</p>
+          <p>Site / office address, Street name<br>City, State – PIN code</p>
+          <p class="enquire__phone">+91 00000 00000</p>
+          <a href="#" class="pill pill--wa js-wa"><svg class="pill__icon"><use href="#i-whatsapp"/></svg><span>Chat on WhatsApp</span></a>
+        </div>
+      </div>
+
+      <form class="lead-form js-lead" data-kind="Site visit enquiry" novalidate>
+        <div class="field"><label for="enq-name">Full name</label><input id="enq-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="enq-phone">Mobile number</label><input id="enq-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required></div>
+        <div class="field"><label for="enq-email">Email <span>(optional)</span></label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field-row">
+          <div class="field"><label for="enq-config">Interested in</label>
+            <select id="enq-config" name="configuration"><option>1 BHK</option><option selected>2 BHK</option><option>3 BHK</option><option>Not sure yet</option></select>
+          </div>
+          <div class="field"><label for="enq-date">Preferred visit date</label><input id="enq-date" name="visit_date" type="date"></div>
+        </div>
+        <div class="field"><label for="enq-msg">Message <span>(optional)</span></label><textarea id="enq-msg" name="message" rows="3"></textarea></div>
+        <label class="check"><input id="enq-consent" type="checkbox" name="consent" required> I agree to be contacted by Vedant Developers &amp; Builders by call, SMS or WhatsApp.</label>
+        <p class="form-error" role="alert" hidden></p>
+        <button type="submit" class="pill pill--tan pill--lg"><svg class="pill__icon"><use href="#i-spark"/></svg><span>Request a Call Back</span></button>
+        <div class="form-done" hidden>
+          <h3>Thank you!</h3>
+          <p>We have your details and will call you shortly.</p>
+          <a href="#" class="pill pill--wa js-wa-done" target="_blank" rel="noopener"><svg class="pill__icon"><use href="#i-whatsapp"/></svg><span>Continue on WhatsApp</span></a>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ BROCHURE ============ -->
+    <section class="brochure-cta" id="brochure">
+      <img class="brochure-cta__img" src="images/elevation-night.jpg" alt="" loading="lazy">
+      <div class="brochure-cta__box">
+        <p class="eyebrow eyebrow--light">Sales Brochure</p>
+        <h2>Get the complete project brochure</h2>
+        <p>Vision, elevations, master plan, floor plans, amenities and payment plans in one document.</p>
+        <form class="mini-form js-lead" data-kind="Brochure download" data-brochure="brochure/Vedant-Residency-Brochure.pdf" novalidate>
+          <label class="sr" for="br-name">Full name</label><input id="br-name" name="name" placeholder="Full name" autocomplete="name" required>
+          <label class="sr" for="br-phone">Mobile number</label><input id="br-phone" name="phone" type="tel" inputmode="numeric" placeholder="Mobile number" autocomplete="tel" required>
+          <input type="hidden" name="consent" value="on">
+          <button type="submit" class="pill pill--cream"><svg class="pill__icon"><use href="#i-download"/></svg><span>Get Brochure</span></button>
+          <p class="form-error" role="alert" hidden></p>
+          <div class="form-done" hidden>
+            <p>Thank you! Your brochure is ready.</p>
+            <a href="brochure/Vedant-Residency-Brochure.pdf" class="pill pill--cream" target="_blank" rel="noopener" download><svg class="pill__icon"><use href="#i-download"/></svg><span>Download PDF</span></a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <p class="rera">MahaRERA Registration No.: to be updated · Available at maharera.mahaonline.gov.in. All plans, images and amenities are indicative and subject to approvals. This is not a legal offering.</p>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous"><svg><use href="#i-arrow"/></svg></button>
+    <img alt="">
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next"><svg><use href="#i-arrow"/></svg></button>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="footer__boxes">
+      <nav class="footer__box footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="project.html">Our Project</a>
+        <a href="project.html#gallery">Gallery</a>
+        <a href="project.html#enquire">Contact</a>
+      </nav>
+      <div class="footer__box footer__info">
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+          <a href="#" class="js-wa" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+        </div>
+        <div class="footer__cols">
+          <div>
+            <p class="label">CONTACT US</p>
+            <p>Site / office address, Street name<br>City, State – PIN code</p>
+          </div>
+          <div>
+            <p class="footer__year">© <span class="js-year">2026</span></p>
+            <p class="small">Vedant Developers &amp; Builders. All rights reserved.</p>
+          </div>
+        </div>
+        <div class="footer__call">
+          <p>Building Trust. Creating Futures.</p>
+          <a href="tel:+910000000000">+91 00000 00000</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__word" data-split>Vedant Developers</p>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a href="#" class="wa-float js-wa" aria-label="Chat with us on WhatsApp">
+    <svg><use href="#i-whatsapp"/></svg><span>Chat with us</span>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

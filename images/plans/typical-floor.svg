@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<rect width="1200" height="900" fill="#fbf9f3"/>
+<rect x="110" y="90" width="430" height="300" fill="#efe6d6" stroke="#3e362e" stroke-width="8"/>
+<line x1="253.33333333333334" y1="90" x2="253.33333333333334" y2="390" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="396.6666666666667" y1="90" x2="396.6666666666667" y2="390" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="110" y1="240.0" x2="540" y2="240.0" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<rect x="235.0" y="206.0" width="180" height="68" fill="#fbf9f3" stroke="#aa8867"/>
+<text x="325.0" y="234.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="22" fill="#3e362e" letter-spacing="2">FLAT 01</text>
+<text x="325.0" y="262.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#664f35">2 BHK</text>
+<rect x="660" y="90" width="430" height="300" fill="#efe6d6" stroke="#3e362e" stroke-width="8"/>
+<line x1="803.3333333333334" y1="90" x2="803.3333333333334" y2="390" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="946.6666666666667" y1="90" x2="946.6666666666667" y2="390" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="660" y1="240.0" x2="1090" y2="240.0" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<rect x="785.0" y="206.0" width="180" height="68" fill="#fbf9f3" stroke="#aa8867"/>
+<text x="875.0" y="234.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="22" fill="#3e362e" letter-spacing="2">FLAT 02</text>
+<text x="875.0" y="262.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#664f35">3 BHK</text>
+<rect x="110" y="500" width="430" height="300" fill="#efe6d6" stroke="#3e362e" stroke-width="8"/>
+<line x1="253.33333333333334" y1="500" x2="253.33333333333334" y2="800" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="396.6666666666667" y1="500" x2="396.6666666666667" y2="800" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="110" y1="650.0" x2="540" y2="650.0" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<rect x="235.0" y="616.0" width="180" height="68" fill="#fbf9f3" stroke="#aa8867"/>
+<text x="325.0" y="644.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="22" fill="#3e362e" letter-spacing="2">FLAT 03</text>
+<text x="325.0" y="672.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#664f35">2 BHK</text>
+<rect x="660" y="500" width="430" height="300" fill="#efe6d6" stroke="#3e362e" stroke-width="8"/>
+<line x1="803.3333333333334" y1="500" x2="803.3333333333334" y2="800" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="946.6666666666667" y1="500" x2="946.6666666666667" y2="800" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<line x1="660" y1="650.0" x2="1090" y2="650.0" stroke="#3e362e" stroke-width="3" opacity=".45"/>
+<rect x="785.0" y="616.0" width="180" height="68" fill="#fbf9f3" stroke="#aa8867"/>
+<text x="875.0" y="644.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="22" fill="#3e362e" letter-spacing="2">FLAT 04</text>
+<text x="875.0" y="672.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#664f35">1 BHK</text>
+<rect x="540" y="230" width="120" height="440" fill="#f6f2e6" stroke="#3e362e" stroke-width="4"/>
+<rect x="555" y="250" width="90" height="85" fill="#dfe6e6" stroke="#3e362e" stroke-width="2"/>
+<text x="600" y="298" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#3e362e" letter-spacing="1">LIFT</text>
+<rect x="555" y="355" width="90" height="85" fill="#dfe6e6" stroke="#3e362e" stroke-width="2"/>
+<text x="600" y="403" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#3e362e" letter-spacing="1">LIFT</text>
+<rect x="555" y="460" width="90" height="85" fill="#e8dcc6" stroke="#3e362e" stroke-width="2"/>
+<text x="600" y="508" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#3e362e" letter-spacing="1">STAIR</text>
+<rect x="555" y="565" width="90" height="85" fill="#fbf9f3" stroke="#3e362e" stroke-width="2"/>
+<text x="600" y="613" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#3e362e" letter-spacing="1">LOBBY</text>
+<text x="110" y="860" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="26" fill="#3e362e">Typical Floor Plan</text>
+<text x="1090" y="860" text-anchor="end" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#664f35">Indicative layout, not to scale</text></svg>

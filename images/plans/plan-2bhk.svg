@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 848" width="800" height="848">
+<rect width="800" height="848" fill="#fbf9f3"/>
+<rect x="70" y="70" width="264" height="88" fill="#e2e8d8" stroke="#3e362e" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="202.0" y="110.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">BALCONY</text>
+<text x="202.0" y="130.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">12'0" x 4'0"</text>
+<rect x="70" y="158" width="264" height="352" fill="#efe6d6" stroke="#3e362e" stroke-width="4"/>
+<text x="202.0" y="330.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">LIVING</text>
+<text x="202.0" y="350.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">12'0" x 16'0"</text>
+<rect x="334" y="158" width="242" height="286" fill="#f3ece0" stroke="#3e362e" stroke-width="4"/>
+<text x="455.0" y="297.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">MASTER BEDROOM</text>
+<text x="455.0" y="317.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">11'0" x 13'0"</text>
+<rect x="576" y="158" width="154" height="154" fill="#dfe6e6" stroke="#3e362e" stroke-width="4"/>
+<text x="653.0" y="231.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">TOILET</text>
+<text x="653.0" y="251.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">7'0" x 7'0"</text>
+<rect x="576" y="312" width="154" height="132" fill="#efe6d6" stroke="#3e362e" stroke-width="4"/>
+<text x="653.0" y="374.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">DRESS</text>
+<text x="653.0" y="394.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">7'0" x 6'0"</text>
+<rect x="70" y="510" width="198" height="198" fill="#e8dcc6" stroke="#3e362e" stroke-width="4"/>
+<text x="169.0" y="605.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">KITCHEN</text>
+<text x="169.0" y="625.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">9'0" x 9'0"</text>
+<rect x="268" y="510" width="66" height="198" fill="#f6f2e6" stroke="#3e362e" stroke-width="4"/>
+<text x="301.0" y="605.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3e362e" letter-spacing="1">PASSAGE</text>
+<text x="301.0" y="625.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="7" fill="#664f35">3'0" x 9'0"</text>
+<rect x="334" y="444" width="242" height="264" fill="#f3ece0" stroke="#3e362e" stroke-width="4"/>
+<text x="455.0" y="572.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">BEDROOM</text>
+<text x="455.0" y="592.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">11'0" x 12'0"</text>
+<rect x="576" y="444" width="154" height="154" fill="#dfe6e6" stroke="#3e362e" stroke-width="4"/>
+<text x="653.0" y="517.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">TOILET</text>
+<text x="653.0" y="537.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">7'0" x 7'0"</text>
+<rect x="576" y="598" width="154" height="110" fill="#e2e8d8" stroke="#3e362e" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="653.0" y="649.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#3e362e" letter-spacing="1">DECK</text>
+<text x="653.0" y="669.0" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#664f35">7'0" x 5'0"</text>
+<rect x="70" y="158" width="660" height="550" fill="none" stroke="#3e362e" stroke-width="9"/>
+<rect x="136.0" y="153" width="132.0" height="10" fill="#fbf9f3" stroke="#3e362e" stroke-width="1.5"/>
+<line x1="136.0" y1="158" x2="268.0" y2="158" stroke="#3e362e" stroke-width="1.5"/>
+<rect x="394.5" y="153" width="121.0" height="10" fill="#fbf9f3" stroke="#3e362e" stroke-width="1.5"/>
+<line x1="394.5" y1="158" x2="515.5" y2="158" stroke="#3e362e" stroke-width="1.5"/>
+<g transform="translate(740,50)"><circle r="22" fill="none" stroke="#aa8867" stroke-width="1.5"/><path d="M0-18 L7 8 L0 3 L-7 8Z" fill="#aa8867"/><text y="40" text-anchor="middle" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="13" fill="#aa8867">N</text></g>
+<text x="70" y="796" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="26" fill="#3e362e">2 BHK Residence</text>
+<text x="70" y="822" font-family="'Hanken Grotesk','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#664f35">Carpet area: ___ sq.ft. (to be confirmed)  ·  Indicative plan, not to scale</text>
+</svg>

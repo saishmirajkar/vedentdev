@@ -1,66 +1,93 @@
-# Vedant Developers & Builders — website
+# Vedant Developers & Builders — website and brochure
 
-A static, single-page website (plain HTML, CSS and JavaScript, no build step).
+Static website (plain HTML, CSS and JavaScript, no build step) plus a 24-page sales brochure.
+
+## Pages
+
+| File | What it is |
+| --- | --- |
+| `index.html` | Home page |
+| `about.html` | About Us: story, founders, philosophy, promise |
+| `project.html` | Project website for **Vedant Residency**: overview, floor plans, master plan, amenities, location advantages, construction updates, gallery, 360° virtual tour, enquiry form, brochure download |
+| `brochure/index.html` | Sales brochure source (24 A4 landscape pages) |
+| `brochure/Vedant-Residency-Brochure.pdf` | Exported brochure PDF (download link on the project page) |
+
+Shared files: `css/style.css` (all styles) and `js/main.js` (animations and interactions). Every page has the floating WhatsApp button.
 
 ## Run it locally
 
-Open `index.html` in a browser, or serve the folder:
-
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# open http://localhost:8000
 ```
 
-To publish, upload the whole folder to any static host (GitHub Pages, Netlify, Vercel, cPanel, etc.).
+To publish, upload the whole folder to any static host (GitHub Pages, Netlify, Vercel, Hostinger, cPanel…).
 
-## Files
+## Settings to fill in first (`js/main.js`)
 
-| Path | What it is |
+At the top of the "Project page" block:
+
+```js
+const WHATSAPP_NUMBER = '910000000000';  // your WhatsApp number: country code + number, digits only
+const FORM_ENDPOINT = '';                // optional: e.g. a Formspree URL to receive enquiries by email
+```
+
+How the lead forms work:
+- The visitor fills in the form (name, 10-digit mobile, configuration, visit date, consent).
+- If `FORM_ENDPOINT` is set, the enquiry is sent there (Formspree, Getform, Google Apps Script, your CRM's webhook…).
+- The visitor then sees a thank-you message with a "Continue on WhatsApp" button that opens a pre-filled chat to your number.
+- The brochure form reveals the PDF download after the visitor enters name and mobile.
+
+## Content checklist (placeholders to replace)
+
+**Everywhere**
+- [ ] Phone, email, office/site address (header menu, footer, project enquiry section, brochure back cover)
+- [ ] Social media links (`href="#"`)
+- [ ] Real logo (currently a text logo plus a simple "V" mark)
+
+**Project (`project.html` and brochure)**
+- [ ] Project name (currently "Vedant Residency")
+- [ ] Location / city
+- [ ] Possession date
+- [ ] MahaRERA registration number and QR code
+- [ ] Carpet areas for each configuration (`___ sq.ft.`)
+- [ ] Number of towers and floors
+- [ ] Final amenity list
+- [ ] Travel times on the location list (`__ min`) and the Google Maps link
+- [ ] Construction updates (dates, text, photos) and progress percentages
+- [ ] Payment plan (the brochure shows a sample construction-linked plan)
+- [ ] Specifications (the brochure shows indicative specifications)
+- [ ] 360° virtual tour: replace `images/pano-*.jpg` with real equirectangular/360 photos, or link a Matterport / YouTube 360 tour
+
+**About / Home**
+- [ ] Founder photos (`team-1.jpg` = Yash Parab, `team-2.jpg` = Pandhari Parab, `journal-1.jpg` = Aarti Parab)
+
+## Images
+
+All images in `images/` are generated placeholders. Replace each with a real photo or render **using the same file name**.
+
+| File(s) | Used for |
 | --- | --- |
-| `index.html` | All page content and sections |
-| `css/style.css` | Colours, fonts, layout, responsive rules and CSS animations |
-| `js/main.js` | Letter-by-letter text reveals, scroll parallax, zoom and scatter effects, menu, rotating word, marquee |
-| `images/` | Placeholder images — replace with real photos |
+| `hero-bg.jpg` | Home page hero background (1920 × 1080) |
+| `elevation-day.jpg`, `elevation-night.jpg`, `elevation-tall.jpg` | Building elevation renders |
+| `amenity-pool.jpg`, `amenity-clubhouse.jpg`, `amenity-garden.jpg` | Amenity CGI renders |
+| `interior-design.jpg`, `project-1.jpg`, `project-2.jpg` | Interior renders |
+| `pano-living.jpg`, `pano-bedroom.jpg`, `pano-balcony.jpg` | 360° virtual tour (wide panoramas, ~4000 × 1000) |
+| `update-1.jpg` … `update-3.jpg` | Construction update photos |
+| `team-1.jpg`, `team-2.jpg`, `journal-1.jpg` | Founder photos |
+| `brand.jpg`, `collage-*.jpg`, `space-*.jpg`, `journal-*.jpg` | Home and About page imagery |
+| `plans/*.svg` | Floor plans, typical floor, master plan, location map (indicative — replace with architect's drawings, SVG/PNG/JPG) |
 
-## Animations and effects
+The brochure uses PNG copies of the plans in `brochure/plans/` — replace those too.
 
-- Hero: the card fades up, then the background fades in and slowly zooms (Ken Burns).
-- Headings marked `data-split` reveal letter by letter (blur + fade + rise); `data-split="words"` reveals word by word.
-- Blocks marked `data-reveal` fade up as they enter the screen.
-- Images marked `data-speed` move with scroll parallax (positive and negative speeds).
-- "Quality Living" section: the photo grows while the headline shrinks as you scroll.
-- Collage section: photos start stacked in the centre and scatter outward while the headline fades in (sticky scroll).
-- "Building Spaces for …": the word below rotates every 1.8 s; the photo strip scrolls endlessly (pauses on hover).
-- Full-screen menu slides down with staggered links; `Esc` closes it.
-- Buttons: the sparkle icon spins on hover; images zoom gently on hover.
-- Everything respects the visitor's "reduce motion" setting.
+## Updating the brochure
 
-## Replacing placeholder content
+1. Edit `brochure/index.html` (text, tables, images).
+2. Re-export the PDF: run a local server (`python3 -m http.server 8000`), then `node tools/export-brochure.js` (needs Playwright), or open the page in Chrome → Print → Save as PDF with "Background graphics" on, A4 landscape, no margins.
 
-All text in `index.html` is placeholder copy written for Vedant Developers & Builders — edit it directly.
-Things to fill in: project names, team names/roles, office address, phone, email, and the social links (`href="#"`).
+## Animations
 
-Replace each image in `images/` with a real photo **using the same file name** (JPG). Recommended sizes:
-
-| File | Used for | Size (px) |
-| --- | --- | --- |
-| `hero-bg.jpg` | Full-screen hero background | 1920 × 1080 |
-| `hero-card.jpg` | Photo inside the hero card | 800 × 860 |
-| `project-1.jpg` … `project-4.jpg` | Projects section | ~1200 × 1500 (portrait) |
-| `brand.jpg` | Right half of the brand section | 1440 × 1800 |
-| `interior-design.jpg` | "Quality Living" zoom section | 1600 × 940 |
-| `collage-1.jpg` … `collage-8.jpg` | Scatter collage | 900 × 900 |
-| `journal-1.jpg` … `journal-3.jpg` | Latest updates cards | 800 × 776 |
-| `team-1.jpg`, `team-2.jpg` | Team photos | ~1200 × 1600 |
-| `space-1.jpg` … `space-6.jpg` | Scrolling photo strip | 886 × 1028 |
-| `menu-card.jpg` | Small card in the menu | 600 × 420 |
-
-To use a video for the hero background instead of a photo, replace the `<img>` inside `.hero__bg` with:
-
-```html
-<video src="images/hero.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>
-```
-
-The logo is set in text in the header (`.logo`) and as a simple SVG "V" mark (`#i-mark` in `index.html`); swap in your real logo when ready.
-
-Fonts: Hanken Grotesk and Inter, loaded from Google Fonts.
+- Letter-by-letter heading reveals (`data-split`), word-by-word (`data-split="words"`), fade-up blocks (`data-reveal`).
+- Scroll parallax (`data-speed`), zoom section, sticky scatter collage, rotating word and endless photo strip.
+- Project page: sticky section navigation, floor-plan tabs, gallery filters and lightbox, draggable 360° viewer, animated progress bars.
+- Respects the visitor's "reduce motion" setting.
