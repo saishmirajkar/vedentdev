@@ -494,6 +494,10 @@
   const camPin = cam && cam.querySelector('.camera__pin');
   const camSteps = cam ? [...cam.querySelectorAll('.camera__step')] : [];
   const stops = camSteps.map(s => ({ x: +s.dataset.x, y: +s.dataset.y, z: +s.dataset.z }));
+  const roof = document.querySelector('[data-roof]');
+  const roofSlides = roof ? [...roof.querySelectorAll('.roof__slide')] : [];
+  const roofTexts = roof ? [...roof.querySelectorAll('.roof__text')] : [];
+  const roofDots = roof ? [...roof.querySelectorAll('.roof__dots li')] : [];
   const hs = document.querySelector('[data-hscroll]');
   const hsTrack = hs && hs.querySelector('.hscroll__track');
   const cut = document.querySelector('[data-cutout] .cutout__word');
@@ -558,6 +562,22 @@
         camPin.style.left = `${tx + x * w * z}px`; camPin.style.top = `${ty + y * h * z}px`;
         camPin.style.setProperty('--pin', z > 1.5 && (f < .15 || f > .85) ? 1 : 0);
       }
+    }
+
+    if (roof && roofSlides.length) {
+      const p = reduce ? 1 : progress(roof);
+      const n = roofSlides.length - 1;
+      let active = 0;
+      roofSlides.forEach((sl, i) => {
+        if (i === 0) { sl.style.setProperty('--s', 1); sl.style.setProperty('--k', range(p, 0, 1 / n).toFixed(4)); return; }
+        const a = (i - 1) / n, b = i / n;
+        const t = ease(range(p, a + (b - a) * .25, b - (b - a) * .1));
+        sl.style.setProperty('--s', t.toFixed(4));
+        sl.style.setProperty('--k', range(p, b, b + 1 / n).toFixed(4));
+        if (t > .5) active = i;
+      });
+      roofTexts.forEach((t, i) => t.classList.toggle('is-active', i === active));
+      roofDots.forEach((d, i) => d.classList.toggle('is-active', i === active));
     }
 
     if (hs && hsTrack && !mobile() && !reduce) {
