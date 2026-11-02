@@ -12,10 +12,8 @@ Photos from [Unsplash](https://unsplash.com), used under the [Unsplash License](
 | `images/photos/living-plants.jpg` | https://unsplash.com/photos/1502672260266-1c1ef2d93688 |
 | `images/photos/living-modern.jpg` | https://unsplash.com/photos/1600607687939-ce8a6c25118c |
 | `images/photos/bedroom-cozy.jpg` | https://unsplash.com/photos/1615874959474-d609969a20ed |
-| `images/photos/bedroom-grey.jpg` | https://unsplash.com/photos/1616594039964-ae9021a400a0 |
 | `images/photos/kitchen-wood.jpg` | https://unsplash.com/photos/1600585152220-90363fe7e115 |
 | `images/photos/bath-white.jpg` | https://unsplash.com/photos/1620626011761-996317b8d101 |
-| `images/photos/garden-path.jpg` | https://unsplash.com/photos/1585320806297-9794b3e4eeae |
 
 Note: the links above use the image IDs from images.unsplash.com; if a link does not open, search the ID on unsplash.com.
 

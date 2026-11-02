@@ -498,6 +498,17 @@
   const roofSlides = roof ? [...roof.querySelectorAll('.roof__slide')] : [];
   const roofTexts = roof ? [...roof.querySelectorAll('.roof__text')] : [];
   const roofDots = roof ? [...roof.querySelectorAll('.roof__dots li')] : [];
+  const dusk = document.querySelector('[data-dusk]');
+  const duskClock = dusk && dusk.querySelector('.dusk__clock');
+  let duskManual = null, duskLastY = 0;
+  if (dusk) {
+    const stage = dusk.querySelector('.dusk__stage');
+    let drag = false;
+    const setFromX = x => { const r = stage.getBoundingClientRect(); duskManual = clamp(1 - (x - r.left) / r.width); duskLastY = scrollY; };
+    stage.addEventListener('pointerdown', e => { drag = true; setFromX(e.clientX); stage.setPointerCapture(e.pointerId); });
+    stage.addEventListener('pointermove', e => { if (drag) setFromX(e.clientX); });
+    ['pointerup', 'pointercancel'].forEach(t => stage.addEventListener(t, () => { drag = false; }));
+  }
   const hs = document.querySelector('[data-hscroll]');
   const hsTrack = hs && hs.querySelector('.hscroll__track');
   const cut = document.querySelector('[data-cutout] .cutout__word');
@@ -561,6 +572,17 @@
       if (camPin) {
         camPin.style.left = `${tx + x * w * z}px`; camPin.style.top = `${ty + y * h * z}px`;
         camPin.style.setProperty('--pin', z > 1.5 && (f < .15 || f > .85) ? 1 : 0);
+      }
+    }
+
+    if (dusk) {
+      if (duskManual !== null && Math.abs(scrollY - duskLastY) > 40) duskManual = null;
+      const d = duskManual !== null ? duskManual : (reduce ? .5 : ease(range(progress(dusk), .1, .85)));
+      dusk.style.setProperty('--d', d.toFixed(4));
+      if (duskClock) {
+        const mins = Math.round(16 * 60 + 30 + d * 165);
+        const h = Math.floor(mins / 60) - 12, m = mins % 60;
+        duskClock.textContent = `${h}:${String(m).padStart(2, '0')}`;
       }
     }
 

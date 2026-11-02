@@ -1408,3 +1408,35 @@ body.is-leaving .loader { clip-path: inset(0 0 0 0); transition-duration: .7s; }
   .roof__dots { top: 90px; transform: none; right: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .roof__slide { clip-path: none; } }
+
+/* ---------- Day to dusk ---------- */
+.dusk { position: relative; height: 280vh; background: var(--dark); }
+.dusk__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.dusk__stage { position: absolute; inset: 0; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.dusk__day, .dusk__night img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; pointer-events: none; }
+.dusk__night { position: absolute; inset: 0; clip-path: inset(0 0 0 calc((1 - var(--d, 0)) * 100%)); }
+.dusk__handle { position: absolute; top: 0; bottom: 0; left: calc((1 - var(--d, 0)) * 100%); width: 2px; margin-left: -1px; background: rgba(255, 255, 255, .85); box-shadow: 0 0 18px rgba(243, 197, 138, .8); }
+.dusk__handle span { position: absolute; top: 50%; left: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(255, 255, 255, .92); color: var(--brown); display: flex; align-items: center; justify-content: center; gap: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); cursor: ew-resize; }
+.dusk__handle svg { width: 16px; height: 16px; }
+.dusk__handle svg:first-child { transform: rotate(180deg); }
+.dusk__copy { position: absolute; left: var(--gutter); top: 12vh; color: var(--white); pointer-events: none; text-shadow: 0 2px 30px rgba(0, 0, 0, .25); }
+.dusk__title { font-size: clamp(42px, 5.6vw, 92px); font-weight: 400; line-height: .98; letter-spacing: -.04em; max-width: 9ch; }
+.dusk__title em { color: var(--glow); }
+.dusk__time { margin-top: 22px; font-size: clamp(30px, 3vw, 46px); font-weight: 300; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.dusk__time small { font-size: .5em; letter-spacing: .12em; }
+.dusk__hint { position: absolute; right: var(--gutter); bottom: 4vh; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+
+.roof { height: 620vh; }
+.amen__big img { aspect-ratio: 4 / 3; }
+
+@media (max-width: 809px) {
+  .dusk { height: 240vh; }
+  .dusk__copy { top: 96px; left: 20px; right: 20px; }
+  .dusk__hint { left: 20px; right: auto; }
+  .roof { height: 560vh; }
+}
+@media (prefers-reduced-motion: reduce) { .dusk { height: auto; } .dusk__sticky { position: relative; } }
+.dusk__sticky::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, rgba(20, 15, 12, .55) 0%, rgba(20, 15, 12, .2) 32%, rgba(20, 15, 12, 0) 50%); }
+.dusk__copy, .dusk__hint { z-index: 2; }
+.dusk__hint { left: 50%; right: auto; transform: translateX(-50%); white-space: nowrap; }
+@media (max-width: 809px) { .dusk__sticky::after { background: linear-gradient(180deg, rgba(20, 15, 12, .6) 0%, rgba(20, 15, 12, 0) 45%); } .dusk__hint { bottom: 12vh; } }
