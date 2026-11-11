@@ -204,6 +204,45 @@
     map.forEach((_, s) => spy.observe(s));
   }
 
+  /* ---------- Floor picker and wing floor toggles ---------- */
+  const swapImg = (frame, src, alt) => {
+    const img = frame.querySelector('img');
+    if (img.getAttribute('src') === src) return;
+    const pre = new Image();
+    frame.classList.add('is-swapping');
+    pre.onload = pre.onerror = () => {
+      setTimeout(() => {
+        img.src = src; if (alt) img.alt = alt;
+        frame.dataset.lightbox = src;
+        frame.classList.remove('is-swapping');
+      }, 180);
+    };
+    pre.src = src;
+  };
+  document.querySelectorAll('[data-fpick]').forEach(root => {
+    const frame = root.querySelector('.fpick__img');
+    const name = root.querySelector('.fpick__name');
+    const sub = root.querySelector('.fpick__caption span');
+    const btns = [...root.querySelectorAll('.fpick__btn')];
+    btns.forEach(b => {
+      const pre = new Image(); pre.src = b.dataset.src;
+      b.addEventListener('click', () => {
+        btns.forEach(o => { o.classList.toggle('is-active', o === b); o.setAttribute('aria-pressed', String(o === b)); });
+        swapImg(frame, b.dataset.src, `${b.dataset.name} plan`);
+        name.textContent = b.dataset.name;
+        sub.textContent = b.dataset.name === 'Stilt parking' ? 'Covered parking for residents' : b.dataset.name === 'Amenity terrace' ? 'Eight shared amenities' : 'Wings A, B and C · 7 homes';
+      });
+    });
+  });
+  document.querySelectorAll('.wing').forEach(w => {
+    const frame = w.querySelector('.wing__img');
+    const btns = [...w.querySelectorAll('.wing__floors button')];
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(o => o.classList.toggle('is-active', o === b));
+      swapImg(frame, b.dataset.src);
+    }));
+  });
+
   /* ---------- Gallery filter ---------- */
   const filters = document.querySelectorAll('.filters button');
   filters.forEach(btn => btn.addEventListener('click', () => {

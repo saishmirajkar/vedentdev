@@ -8,9 +8,9 @@ Static website (plain HTML, CSS and JavaScript, no build step) plus a 24-page sa
 | --- | --- |
 | `index.html` | Home page |
 | `about.html` | About Us: story, founders, philosophy, promise |
-| `project.html` | Project website for **Vedant Residency**: overview, floor plans, master plan, amenities, location advantages, construction updates, gallery, 360° virtual tour, enquiry form, brochure download |
+| `project.html` | Project website for **Vedant Nature’s Nest**, Belagavi: overview, floor plans (floor picker + wing layouts), amenities, location advantages, construction updates, gallery, 360° virtual tour, enquiry form, brochure download |
 | `brochure/index.html` | Sales brochure source (24 A4 landscape pages) |
-| `brochure/Vedant-Residency-Brochure.pdf` | Exported brochure PDF (download link on the project page) |
+| `brochure/Vedant-Natures-Nest-Brochure.pdf` | Exported brochure PDF (download link on the project page) |
 
 Shared files: `css/style.css` (all styles) and `js/main.js` (animations and interactions). Every page has the floating WhatsApp button.
 
@@ -46,13 +46,12 @@ How the lead forms work:
 - [x] Logo (`images/brand/`). For the sharpest result, ask your designer for an SVG or a larger transparent PNG and replace the files with the same names.
 
 **Project (`project.html` and brochure)**
-- [ ] Project name (currently "Vedant Residency")
-- [ ] Location / city
+- [x] Project name (Vedant Nature’s Nest) and location (Belagavi), taken from the architect's drawings — change if the marketing name differs
 - [ ] Possession date
-- [ ] MahaRERA registration number and QR code
-- [ ] Carpet areas for each configuration (`___ sq.ft.`)
-- [ ] Number of towers and floors
-- [ ] Final amenity list (the site now lists the rooftop amenities shown in your renders: café, open-air theatre, kids' playing area, lounge & workspace, Nature's Nest, gazebo seating, landscaped sit-outs, lit walking track)
+- [ ] K-RERA registration number and QR code (Karnataka RERA, rera.karnataka.gov.in)
+- [ ] Carpet area of each flat (A1–A3, B1–B2, C1–C2) — the drawings give room sizes but not flat areas
+- [x] Building: 3 wings (A, B, C), stilt + 7 floors + amenity terrace, 7 homes per floor, 2 & 3 BHK
+- [x] Amenity list: the 8 terrace amenities from the terrace floor plan
 - [ ] Travel times on the location list (`__ min`) and the Google Maps link
 - [ ] Construction updates (dates, text, photos) and progress percentages
 - [ ] Payment plan (the brochure shows a sample construction-linked plan)
@@ -73,7 +72,9 @@ How the lead forms work:
 | `images/building/detail-*.jpg` | Close-up crops of the render (rooftop, balconies, greens, entrance, facade, street) |
 | `images/renders/*.jpg` | Your rooftop amenity renders (café, open-air theatre, kids' area, aerial) and close-up crops of them (`crop-*.jpg`) |
 | `images/photos/*.jpg` | Real photos from Unsplash (free licence, commercial use allowed). They are **representative** interiors, amenities and lifestyle images, labelled as such on the site. See `CREDITS.md`. |
-| `images/plans/*.svg` | Indicative floor plans, rooftop amenity plan (drawn from the aerial render) and location map — replace with the architect's drawings |
+| `images/plans/real/*.jpg` | Real floor plans from the architect's presentation set: `stilt`, `floor-1`…`floor-7`, `terrace`, and wing flat layouts `wing-{a,b,c}-{1,2,5}` (1st, 2nd and 5th floor versions) |
+| `images/terrace/view-*.jpg` | The architect's 3D views of the terrace (gym, banquet hall, play area, pet area…) |
+| `images/plans/location-map.svg` | Placeholder location map — replace with a real map |
 | `images/update-*.jpg` | Placeholder construction-update images — replace with real site photos |
 
 When you get more renders (interiors, clubhouse, pool), drop them in and swap the file names in the HTML. If you replace `render.jpg`, regenerate `blueprint.jpg` too (or ask for it to be regenerated).
