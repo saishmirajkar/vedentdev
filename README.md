@@ -43,7 +43,7 @@ How the lead forms work:
 **Everywhere**
 - [ ] Phone, email, office/site address (header menu, footer, project enquiry section, brochure back cover)
 - [ ] Social media links (`href="#"`)
-- [ ] Real logo (currently a text logo plus a simple "V" mark)
+- [x] Logo (`images/brand/`). For the sharpest result, ask your designer for an SVG or a larger transparent PNG and replace the files with the same names.
 
 **Project (`project.html` and brochure)**
 - [ ] Project name (currently "Vedant Residency")
@@ -66,6 +66,7 @@ How the lead forms work:
 
 | Folder / file | What it is |
 | --- | --- |
+| `images/brand/logo-*.png` | Your logo: full, horizontal (header), monogram, wordmark and tagline. `-light` versions have the small lettering lifted to light gold for dark backgrounds. Plus `favicon.png` and `apple-touch-icon.png`. |
 | `images/building/render.jpg` | Your building render (used in the hero, camera tour, gallery and brochure) |
 | `images/building/render-day.jpg` | Your afternoon front render, aligned pixel-for-pixel to `render.jpg` for the day-to-dusk slider. If either render changes, they must be re-aligned. |
 | `images/building/blueprint.jpg` | Line drawing generated from the render, used for the "blueprint to building" hero animation |
@@ -87,7 +88,7 @@ The brochure uses PNG copies of the plans in `brochure/plans/` — replace those
 ## Animations
 
 Home page, top to bottom:
-- **Loader**: the "V" mark draws itself with a 0–100 counter (first visit only), then the curtain lifts. Every internal link closes the curtain before the next page opens.
+- **Loader**: the VD monogram wipes in with a gold shimmer, then the wordmark and "Spaces for a better tomorrow" fade up beside a 0–100 counter (first visit only), then the curtain lifts. Every internal link closes the curtain before the next page opens.
 - **Rise**: the blueprint drawing sketches in, then the real building rises floor by floor as you scroll (Blueprint → Foundation → Structure → Facade → Home), expands to full screen and reveals the call to action.
 - **Word fill**: the belief statement lights up word by word as you scroll.
 - **Day to dusk**: scrolling (or dragging) wipes the afternoon render into the dusk render while a clock runs from 4:30 to 7:15 PM.
@@ -95,7 +96,7 @@ Home page, top to bottom:
 - **Life on the rooftop**: six renders (aerial, café, open-air theatre, kids' area, gazebos, seniors' court) wipe up over each other as you scroll, with captions and progress markers.
 - **Residences**: vertical scrolling moves a horizontal strip of 1, 2 and 3 BHK cards.
 - **Scatter collage**, **expanding generation panels**, **amenity list with floating photo preview**, **"Elevated" cut out of the render**, **parallax interior columns**, **founder monograms**, **rotating word with photo marquee**, **parallax call to action**.
-- Site-wide: smooth scrolling (Lenis), custom cursor with labels, magnetic buttons, image wipe reveals, subtle film grain.
+- Site-wide: the header logo switches between its dark and light versions depending on the section behind it; smooth scrolling (Lenis), custom cursor with labels, magnetic buttons, image wipe reveals, subtle film grain.
 
 - Letter-by-letter heading reveals (`data-split`), word-by-word (`data-split="words"`), fade-up blocks (`data-reveal`).
 - Scroll parallax (`data-speed`), zoom section, sticky scatter collage, rotating word and endless photo strip.

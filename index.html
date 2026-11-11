@@ -8,13 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/brand/favicon.png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Loader / page curtain -->
   <div class="loader" aria-hidden="true">
-    <svg class="loader__mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path pathLength="1" d="M6 10 32 56 58 10"/><path pathLength="1" d="M17 10 32 37 47 10"/><path pathLength="1" d="M28 10h8"/></g></svg>
-    <p class="loader__name">Vedant Developers &amp; Builders</p>
+    <div class="loader__mark"><img src="images/brand/logo-mark.png" alt=""></div>
+    <img class="loader__word" src="images/brand/logo-word-light.png" alt="">
+    <p class="loader__name">Spaces for a better tomorrow</p>
     <p class="loader__count"><span>0</span>%</p>
   </div>
   <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><b class="cursor__label"></b></span></div>
@@ -34,7 +37,6 @@
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-    <symbol id="i-mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square"><path d="M6 10 32 56 58 10"/><path d="M17 10 32 37 47 10"/><path d="M28 10h8"/></g></symbol>
     <!-- amenity icons -->
     <symbol id="a-pool" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 20V7a3 3 0 0 1 6 0M18 20V7a3 3 0 0 1 6 0M10 11h8M10 15h8"/><path d="M3 24c2.2 0 2.2-1.6 4.4-1.6S9.6 24 11.8 24s2.2-1.6 4.4-1.6S18.4 24 20.6 24s2.2-1.6 4.4-1.6S27.2 24 29 24"/></g></symbol>
     <symbol id="a-gym" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 11v10M10 8v16M22 8v16M26 11v10M10 16h12M3 16h3M26 16h3"/></g></symbol>
@@ -57,10 +59,9 @@
 
   <!-- ============ HEADER ============ -->
   <header class="header">
-    <a href="index.html" class="logo" aria-label="Vedant Developers &amp; Builders — home">
-      <span class="logo__top">VEDANT</span>
-      <span class="logo__rest">DEVELOPERS&nbsp;&nbsp;&amp;</span>
-      <span class="logo__rest">BUILDERS</span>
+    <a href="index.html" class="logo" aria-label="Vedant Developers and Builders — home">
+      <img class="logo__img logo__img--on-light" src="images/brand/logo-horizontal.png" alt="Vedant Developers and Builders">
+      <img class="logo__img logo__img--on-dark" src="images/brand/logo-horizontal-light.png" alt="">
     </a>
     <button class="pill pill--menu" id="menuOpen" aria-expanded="false" aria-controls="menu">
       <svg class="pill__icon"><use href="#i-spark"/></svg><span>Menu</span>
@@ -70,10 +71,7 @@
   <!-- ============ MENU OVERLAY ============ -->
   <div class="menu" id="menu" aria-hidden="true">
     <div class="menu__bar">
-      <div class="brandmark brandmark--sm" aria-hidden="true">
-        <svg class="brandmark__sym" viewBox="0 0 64 64"><use href="#i-mark"/></svg>
-        <div class="brandmark__txt"><b>VEDANT</b><span>DEVELOPERS &amp; BUILDERS</span></div>
-      </div>
+      <img class="menu__logo" src="images/brand/logo-horizontal-light.png" alt="Vedant Developers and Builders">
       <button class="pill pill--close" id="menuClose" aria-label="Close menu"><svg class="pill__icon"><use href="#i-close"/></svg></button>
     </div>
     <div class="menu__grid">
@@ -468,7 +466,7 @@
         </div>
       </div>
     </div>
-    <p class="footer__word" data-split>Vedant Developers</p>
+    <div class="footer__brand"><img src="images/brand/logo-full-light.png" alt="Vedant Developers and Builders — Spaces for a better tomorrow"></div>
   </footer>
 
   <!-- Floating WhatsApp button -->

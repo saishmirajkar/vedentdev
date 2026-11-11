@@ -509,6 +509,17 @@
     stage.addEventListener('pointermove', e => { if (drag) setFromX(e.clientX); });
     ['pointerup', 'pointercancel'].forEach(t => stage.addEventListener(t, () => { drag = false; }));
   }
+  // Header logo: light lettering over dark sections, dark lettering over light ones
+  const darkSections = [...document.querySelectorAll('.rise, .dusk, .camera, .roof, .gens, .cutout, .spaces, .cta, .footer, .hero--project, .amen, .tour, .brochure-cta, .philosophy, .commit, .journal')];
+  const headerTone = () => {
+    const y = 44;
+    const dark = darkSections.some(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top > y || r.bottom < y) return false;
+      return !el.classList.contains('rise') || el.classList.contains('is-final');
+    });
+    document.body.classList.toggle('header-dark', dark);
+  };
   const hs = document.querySelector('[data-hscroll]');
   const hsTrack = hs && hs.querySelector('.hscroll__track');
   const cut = document.querySelector('[data-cutout] .cutout__word');
@@ -574,6 +585,8 @@
         camPin.style.setProperty('--pin', z > 1.5 && (f < .15 || f > .85) ? 1 : 0);
       }
     }
+
+    headerTone();
 
     if (dusk) {
       if (duskManual !== null && Math.abs(scrollY - duskLastY) > 40) duskManual = null;
