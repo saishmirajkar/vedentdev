@@ -389,7 +389,7 @@
         err.hidden = false;
         return;
       }
-      const msg = [`Hi, I am ${lead.name}.`, `${lead.type} for Vedant Nature’s Nest.`, lead.configuration ? `Interested in: ${lead.configuration}.` : '', lead.visit_date ? `Preferred visit date: ${lead.visit_date}.` : '', `Mobile: ${phone}.`, lead.message || ''].filter(Boolean).join(' ');
+      const msg = [`Hi, I am ${lead.name}.`, `${lead.type} for Vedant Nature’s Nest.`, lead.configuration ? `Interested in: ${lead.configuration}.` : '', `Mobile: ${phone}.`, lead.message || ''].filter(Boolean).join(' ');
       const waDone = form.querySelector('.js-wa-done');
       if (waDone) waDone.href = waLink(msg);
       form.classList.add('is-sent');

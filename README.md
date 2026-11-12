@@ -33,7 +33,7 @@ const GOOGLE_SHEET_URL = '';             // your Google Sheet web app URL (see g
 ```
 
 How the enquiry form works:
-- The visitor fills in the form (name, 10-digit mobile, optional email, flat type, visit date, message, consent).
+- The visitor fills in the form (name, 10-digit mobile, optional email, flat type, message, consent).
 - Each enquiry is added as a row in your Google Sheet. Setup takes about 5 minutes: follow [`google-sheet/README.md`](google-sheet/README.md) and paste the script from [`google-sheet/Code.gs`](google-sheet/Code.gs).
 - The visitor then sees a thank-you message with a "Continue on WhatsApp" button that opens a pre-filled chat to your number.
 - The Sales Brochure section is a direct download button (no form).

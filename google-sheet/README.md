@@ -1,7 +1,7 @@
 # Connect the enquiry form to Google Sheets
 
 Every site-visit enquiry from the project page is added as a new row in a Google Sheet:
-received time, name, mobile, email, flat type, preferred visit date, message, form and page.
+received time, name, mobile, email, flat type, message, form and page. (The sheet also has a "Preferred visit date" column from the first version of the form; it now stays empty.)
 
 One-time setup, about 5 minutes. Do it while signed in to the Google account that should own the leads
 (for example vedantdevelopersandbuilders@gmail.com).
