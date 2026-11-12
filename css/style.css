@@ -1515,3 +1515,8 @@ body.is-leaving .loader { clip-path: inset(0 0 0 0); transition-duration: .7s; }
   .fpick__label { display: none; }
   .amen__list { grid-template-columns: 1fr; }
 }
+
+/* Brochure download + spam trap */
+.brochure-cta__btn { margin-top: 28px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.lead-form button[disabled] { opacity: .7; cursor: progress; }

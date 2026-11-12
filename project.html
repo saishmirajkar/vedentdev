@@ -389,6 +389,7 @@
       </div>
 
       <form class="lead-form js-lead" data-kind="Site visit enquiry" novalidate>
+        <div class="hp" aria-hidden="true"><label for="enq-website">Leave this field empty</label><input id="enq-website" name="website" tabindex="-1" autocomplete="off"></div>
         <div class="field"><label for="enq-name">Full name</label><input id="enq-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="enq-phone">Mobile number</label><input id="enq-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required></div>
         <div class="field"><label for="enq-email">Email <span>(optional)</span></label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
@@ -416,18 +417,8 @@
       <div class="brochure-cta__box">
         <p class="eyebrow eyebrow--light">Sales Brochure</p>
         <h2>Get the complete project brochure</h2>
-        <p>Vision, elevations, master plan, floor plans, amenities and payment plans in one document.</p>
-        <form class="mini-form js-lead" data-kind="Brochure download" data-brochure="brochure/Vedant-Natures-Nest-Brochure.pdf" novalidate>
-          <label class="sr" for="br-name">Full name</label><input id="br-name" name="name" placeholder="Full name" autocomplete="name" required>
-          <label class="sr" for="br-phone">Mobile number</label><input id="br-phone" name="phone" type="tel" inputmode="numeric" placeholder="Mobile number" autocomplete="tel" required>
-          <input type="hidden" name="consent" value="on">
-          <button type="submit" class="pill pill--cream"><svg class="pill__icon"><use href="#i-download"/></svg><span>Get Brochure</span></button>
-          <p class="form-error" role="alert" hidden></p>
-          <div class="form-done" hidden>
-            <p>Thank you! Your brochure is ready.</p>
-            <a href="brochure/Vedant-Natures-Nest-Brochure.pdf" class="pill pill--cream" target="_blank" rel="noopener" download><svg class="pill__icon"><use href="#i-download"/></svg><span>Download PDF</span></a>
-          </div>
-        </form>
+        <p>Vision, elevations, floor plans, terrace plan, amenities and payment plans in one document.</p>
+        <a href="brochure/Vedant-Natures-Nest-Brochure.pdf" class="pill pill--cream pill--lg brochure-cta__btn magnetic" target="_blank" rel="noopener" download data-cursor="Download"><svg class="pill__icon"><use href="#i-download"/></svg><span>Download Brochure (PDF)</span></a>
       </div>
     </section>
 

@@ -29,14 +29,14 @@ At the top of the "Project page" block:
 
 ```js
 const WHATSAPP_NUMBER = '910000000000';  // your WhatsApp number: country code + number, digits only
-const FORM_ENDPOINT = '';                // optional: e.g. a Formspree URL to receive enquiries by email
+const GOOGLE_SHEET_URL = '';             // your Google Sheet web app URL (see google-sheet/README.md)
 ```
 
-How the lead forms work:
-- The visitor fills in the form (name, 10-digit mobile, configuration, visit date, consent).
-- If `FORM_ENDPOINT` is set, the enquiry is sent there (Formspree, Getform, Google Apps Script, your CRM's webhook…).
+How the enquiry form works:
+- The visitor fills in the form (name, 10-digit mobile, optional email, flat type, visit date, message, consent).
+- Each enquiry is added as a row in your Google Sheet. Setup takes about 5 minutes: follow [`google-sheet/README.md`](google-sheet/README.md) and paste the script from [`google-sheet/Code.gs`](google-sheet/Code.gs).
 - The visitor then sees a thank-you message with a "Continue on WhatsApp" button that opens a pre-filled chat to your number.
-- The brochure form reveals the PDF download after the visitor enters name and mobile.
+- The Sales Brochure section is a direct download button (no form).
 
 ## Content checklist (placeholders to replace)
 

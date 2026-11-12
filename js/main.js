@@ -152,12 +152,12 @@
 (() => {
   // Your WhatsApp number with country code, digits only (e.g. 919876543210)
   const WHATSAPP_NUMBER = '910000000000';
-  // Optional: paste a form endpoint (e.g. https://formspree.io/f/xxxx) to receive leads by email
-  const FORM_ENDPOINT = '';
+  // Google Sheet web app URL (see google-sheet/README.md). Enquiries are added as rows in your sheet.
+  const GOOGLE_SHEET_URL = '';
 
   const waLink = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   document.querySelectorAll('.js-wa').forEach(a => {
-    a.href = waLink('Hi, I am interested in Vedant Residency. Please share details.');
+    a.href = waLink('Hi, I am interested in Vedant Nature’s Nest, Belagavi. Please share details.');
     a.target = '_blank';
     a.rel = 'noopener';
   });
@@ -366,13 +366,30 @@
       if (problems.length) { err.textContent = problems.join(' '); err.hidden = false; return; }
       err.hidden = true;
 
-      const lead = { ...data, phone, type: form.dataset.kind, page: location.pathname, time: new Date().toISOString() };
-      if (FORM_ENDPOINT) {
+      if (data.website) return; // spam trap: real visitors never fill the hidden field
+
+      const lead = { ...data, phone, type: form.dataset.kind, page: location.pathname };
+      delete lead.website;
+      const btn = form.querySelector('button[type="submit"]');
+      const label = btn && btn.querySelector('span');
+      const idle = label ? label.textContent : '';
+      if (btn) { btn.disabled = true; if (label) label.textContent = 'Sending…'; }
+      let sent = true;
+      if (GOOGLE_SHEET_URL) {
         try {
-          await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(lead) });
-        } catch (x) { /* still show the thank-you and WhatsApp option */ }
+          // Apps Script web apps accept a simple form POST; "no-cors" means the reply can't be read, but the row is added.
+          await fetch(GOOGLE_SHEET_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(lead) });
+        } catch (x) {
+          sent = false;
+        }
       }
-      const msg = [`Hi, I am ${lead.name}.`, `${lead.type} for Vedant Residency.`, lead.configuration ? `Interested in: ${lead.configuration}.` : '', lead.visit_date ? `Preferred visit date: ${lead.visit_date}.` : '', `Mobile: ${phone}.`, lead.message || ''].filter(Boolean).join(' ');
+      if (btn) { btn.disabled = false; if (label) label.textContent = idle; }
+      if (!sent) {
+        err.textContent = 'We could not send your details. Please check your connection and try again, or chat with us on WhatsApp.';
+        err.hidden = false;
+        return;
+      }
+      const msg = [`Hi, I am ${lead.name}.`, `${lead.type} for Vedant Nature’s Nest.`, lead.configuration ? `Interested in: ${lead.configuration}.` : '', lead.visit_date ? `Preferred visit date: ${lead.visit_date}.` : '', `Mobile: ${phone}.`, lead.message || ''].filter(Boolean).join(' ');
       const waDone = form.querySelector('.js-wa-done');
       if (waDone) waDone.href = waLink(msg);
       form.classList.add('is-sent');
