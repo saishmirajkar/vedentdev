@@ -17,7 +17,7 @@ One-time setup, about 5 minutes. Do it while signed in to the Google account tha
 5. Click **Deploy**, then **Authorize access**, choose your account and allow it.
    Google may warn that the app isn't verified: click **Advanced → Go to (project name)**. This is your own script.
 6. Copy the **Web app URL** (it ends in `/exec`).
-7. Open `js/main.js`, find `const GOOGLE_SHEET_URL = '';` and paste the URL between the quotes:
+7. Open `js/main.js`, find `const GOOGLE_SHEET_URL` and paste the URL between the quotes (already done for the current sheet):
    ```js
    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/XXXXXXXX/exec';
    ```
