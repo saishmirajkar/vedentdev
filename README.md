@@ -93,5 +93,6 @@ Home page, top to bottom:
 
 - Letter-by-letter heading reveals (`data-split`), word-by-word (`data-split="words"`), fade-up blocks (`data-reveal`).
 - Scroll parallax (`data-speed`), zoom section, sticky scatter collage, rotating word and endless photo strip.
-- Project page: sticky section navigation, floor-plan tabs, gallery filters and lightbox, draggable 360° viewer, animated progress bars.
+- Project page floor plans: each flat is outlined on the plan and coloured by type (2 BHK muted olive, 2.5 BHK cream-gold, 3 BHK dark brown). The type buttons highlight matching flats; hovering shows the flat's size on that floor; clicking a flat (or its label or table row) zooms the plan to it and opens its layout. The flat outlines live in `project.html` as SVG polygons (percent coordinates), traced from the architect's key plans.
+- Project page: sticky section navigation, gallery filters and lightbox, draggable 360° viewer, animated progress bars.
 - Respects the visitor's "reduce motion" setting.

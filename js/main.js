@@ -219,22 +219,166 @@
     };
     pre.src = src;
   };
+  /* ---------- Interactive floor plan ---------- */
   document.querySelectorAll('[data-fpick]').forEach(root => {
-    const frame = root.querySelector('.fpick__img');
-    const name = root.querySelector('.fpick__name');
+    const dataEl = document.getElementById('flat-data');
+    const FLATS = dataEl ? JSON.parse(dataEl.textContent) : {};
+    const map = root.querySelector('[data-fmap]');
+    const zoom = map.querySelector('.fmap__zoom');
+    const img = map.querySelector('.fmap__img');
+    const tip = map.querySelector('.fmap__tip');
+    const reset = map.querySelector('.fmap__reset');
+    const enlarge = map.querySelector('.fmap__enlarge');
+    const legend = root.querySelector('.flegend');
+    const legendBtns = [...root.querySelectorAll('.flegend__btn')];
+    const floorBtns = [...root.querySelectorAll('.fpick__btn')];
     const tables = [...root.querySelectorAll('.fpick__table')];
     const none = root.querySelector('.fpick__none');
-    const btns = [...root.querySelectorAll('.fpick__btn')];
-    btns.forEach(b => {
+    const name = root.querySelector('.fpick__name');
+    const hint = root.querySelector('.fpick__hint');
+    const drawer = root.querySelector('.fdrawer');
+    const FLOOR_LABEL = { '1': '1st floor', typical: '2nd–4th, 6th–7th', '5': '5th floor' };
+    let floor = 'typical', type = 'all', selected = null;
+
+    const els = flat => root.querySelectorAll(`[data-floor="${floor}"] [data-flat="${flat}"], .fpick__table[data-for="${floor}"] tr[data-flat="${flat}"]`);
+    const allFlatEls = () => root.querySelectorAll('.fpoly, .fmap__pin, .atable tbody tr');
+
+    const setAspect = () => { if (img.naturalWidth) map.style.setProperty('--ar', (img.naturalWidth / img.naturalHeight).toFixed(4)); };
+    img.addEventListener('load', setAspect); setAspect();
+
+    const redraw = () => { map.classList.remove('is-drawn'); void map.offsetWidth; map.classList.add('is-drawn'); };
+    const seen = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { redraw(); seen.disconnect(); } }), { threshold: .25 });
+    seen.observe(map);
+
+    const applyType = () => {
+      legendBtns.forEach(b => { const on = b.dataset.type === type; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); });
+      allFlatEls().forEach(el => {
+        const match = type === 'all' || el.dataset.type === type;
+        el.classList.toggle('is-dim', !match);
+        el.classList.toggle('is-on', type !== 'all' && match);
+      });
+    };
+    legendBtns.forEach(b => b.addEventListener('click', () => { type = b.dataset.type; applyType(); }));
+
+    const hover = (flat, on) => els(flat).forEach(el => el.classList.toggle('is-hover', on));
+    const showTip = (flat, x, y) => {
+      if (!flat || !FLATS[flat]) return;
+      const f = FLATS[flat];
+      tip.querySelector('b').textContent = `${flat} · ${f.type} BHK`;
+      tip.querySelector('span').textContent = `${f.areas[floor]} sq.ft. on this floor`;
+      tip.hidden = false;
+      const r = map.getBoundingClientRect();
+      const tw = tip.offsetWidth, th = tip.offsetHeight;
+      let left = x - r.left + 16, top = y - r.top - th - 12;
+      if (left + tw > r.width - 8) left = x - r.left - tw - 16;
+      if (top < 8) top = y - r.top + 18;
+      tip.style.transform = `translate(${left}px, ${top}px)`;
+    };
+    const hideTip = () => { tip.hidden = true; };
+
+    const zoomTo = flat => {
+      const poly = root.querySelector(`.fmap__svg[data-floor="${floor}"] [data-flat="${flat}"]`);
+      if (!poly) return;
+      const [bx, by, bw, bh] = poly.dataset.box.split(',').map(Number);
+      const W = map.clientWidth, H = map.clientHeight;
+      let visW = W;
+      if (drawer.classList.contains('is-open') && innerWidth > 809) {
+        // where the drawer's left edge ends up once it has slid in (ignores the slide transform)
+        const rootR = root.getBoundingClientRect();
+        const dl = rootR.left + root.clientWidth - drawer.offsetWidth - map.getBoundingClientRect().left - 12;
+        visW = Math.max(W * .45, Math.min(W, dl));
+      }
+      const pw = bw / 100 * W, ph = bh / 100 * H;
+      const s = Math.max(1.2, Math.min(2.6, Math.min(visW * .82 / pw, H * .82 / ph)));
+      const cx = (bx + bw / 2) / 100 * W, cy = (by + bh / 2) / 100 * H;
+      const tx = Math.min(0, Math.max(visW - s * W, visW / 2 - s * cx));
+      const ty = Math.min(0, Math.max(H - s * H, H / 2 - s * cy));
+      zoom.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${s.toFixed(3)})`;
+      zoom.style.setProperty('--z', s.toFixed(3));
+    };
+    const unzoom = () => { zoom.style.transform = ''; zoom.style.setProperty('--z', 1); };
+
+    const fillDrawer = flat => {
+      const f = FLATS[flat];
+      const cls = f.type === '2' ? 't2' : f.type === '2.5' ? 't25' : 't3';
+      drawer.querySelector('.fdrawer__eyebrow').innerHTML = `<i class="dot ${cls}"></i>Wing ${flat[0]} · ${f.type} BHK`;
+      drawer.querySelector('.fdrawer__title').textContent = `Flat ${flat}`;
+      const pic = drawer.querySelector('.fdrawer__img');
+      pic.dataset.lightbox = `images/plans/flats/${flat}.jpg`;
+      const im = pic.querySelector('img');
+      im.src = `images/plans/flats/${flat}.jpg`; im.alt = `Flat ${flat} layout`;
+      im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
+      drawer.querySelector('.fdrawer__specs').innerHTML = ['1', 'typical', '5']
+        .map(k => `<div class="${k === floor ? 'is-current' : ''}"><dt>${FLOOR_LABEL[k]}</dt><dd>${f.areas[k]} sq.ft.</dd></div>`).join('');
+      drawer.querySelector('.fdrawer__cta').dataset.config = `${f.type} BHK`;
+    };
+
+    const openFlat = flat => {
+      if (!FLATS[flat]) return;
+      selected = flat;
+      allFlatEls().forEach(el => el.classList.toggle('is-selected', el.dataset.flat === flat && el.closest(`[data-floor="${floor}"], .fpick__table[data-for="${floor}"]`)));
+      map.classList.add('has-selection');
+      hideTip();
+      fillDrawer(flat);
+      drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden', 'false');
+      reset.hidden = false;
+      requestAnimationFrame(() => zoomTo(flat));
+    };
+    const closeFlat = () => {
+      selected = null;
+      allFlatEls().forEach(el => el.classList.remove('is-selected'));
+      map.classList.remove('has-selection');
+      drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true');
+      reset.hidden = true;
+      unzoom();
+    };
+    drawer.querySelector('.fdrawer__close').addEventListener('click', closeFlat);
+    reset.addEventListener('click', closeFlat);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && selected && document.getElementById('lightbox').hidden) closeFlat(); });
+    addEventListener('resize', () => { if (selected) zoomTo(selected); });
+
+    // Polygons: hover card + click
+    root.querySelectorAll('.fpoly').forEach(p => {
+      p.addEventListener('pointerenter', () => hover(p.dataset.flat, true));
+      p.addEventListener('pointermove', e => { if (e.pointerType === 'mouse' && !selected) showTip(p.dataset.flat, e.clientX, e.clientY); });
+      p.addEventListener('pointerleave', () => { hover(p.dataset.flat, false); hideTip(); });
+      p.addEventListener('click', () => (selected === p.dataset.flat ? closeFlat() : openFlat(p.dataset.flat)));
+    });
+    // Pins (keyboard accessible) and table rows
+    root.querySelectorAll('.fmap__pin, .atable tbody tr').forEach(el => {
+      el.addEventListener('mouseenter', () => hover(el.dataset.flat, true));
+      el.addEventListener('mouseleave', () => hover(el.dataset.flat, false));
+      el.addEventListener('click', () => (selected === el.dataset.flat ? closeFlat() : openFlat(el.dataset.flat)));
+      if (el.tagName === 'TR') el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFlat(el.dataset.flat); } });
+    });
+
+    // Floor switching
+    floorBtns.forEach(b => {
       const pre = new Image(); pre.src = b.dataset.src;
       b.addEventListener('click', () => {
-        btns.forEach(o => { o.classList.toggle('is-active', o === b); o.setAttribute('aria-pressed', String(o === b)); });
-        swapImg(frame, b.dataset.src, `${b.textContent.trim()} plan`);
-        name.innerHTML = b.dataset.name;
-        tables.forEach(t => { t.hidden = t.dataset.for !== b.dataset.table; });
-        if (none) none.hidden = !!b.dataset.table;
+        if (b.classList.contains('is-active')) return;
+        floorBtns.forEach(o => { o.classList.toggle('is-active', o === b); o.setAttribute('aria-pressed', String(o === b)); });
+        closeFlat();
+        const next = b.dataset.floor;
+        map.classList.add('is-swapping');
+        const go = () => {
+          floor = next || 'none';
+          img.src = b.dataset.src; img.alt = `${b.dataset.name} plan`;
+          enlarge.dataset.lightbox = b.dataset.src;
+          root.querySelectorAll('.fmap__svg, .fmap__pins').forEach(el => el.toggleAttribute('hidden', el.dataset.floor !== next));
+          tables.forEach(t => { t.hidden = t.dataset.for !== next; });
+          if (none) none.hidden = !!next;
+          legend.hidden = !next;
+          if (hint) hint.hidden = !next;
+          name.innerHTML = b.dataset.name;
+          applyType();
+          const done = () => { setAspect(); map.classList.remove('is-swapping'); if (next) redraw(); };
+          if (img.complete) requestAnimationFrame(done); else img.addEventListener('load', done, { once: true });
+        };
+        setTimeout(go, 300);
       });
     });
+    applyType();
   });
   document.querySelectorAll('[data-demo]').forEach(root => {
     const frame = root.querySelector('.demo__frame');
