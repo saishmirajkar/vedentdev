@@ -1520,3 +1520,92 @@ body.is-leaving .loader { clip-path: inset(0 0 0 0); transition-duration: .7s; }
 .brochure-cta__btn { margin-top: 28px; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .lead-form button[disabled] { opacity: .7; cursor: progress; }
+
+/* ---------- Brochure-based project content ---------- */
+.facts--5 { grid-template-columns: repeat(5, 1fr); }
+.ofacts { display: grid; grid-template-columns: 1fr 1fr; margin: 36px 0 0; border-top: 1px solid rgba(176, 122, 82, .5); }
+.ofacts div { padding: 16px 16px 16px 0; border-bottom: 1px solid rgba(176, 122, 82, .5); }
+.ofacts dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--tan); }
+.ofacts dd { margin: 6px 0 0; font-size: 19px; color: var(--ink); letter-spacing: -.3px; }
+.overview__logo { width: min(260px, 60%); margin: 28px auto 0; }
+
+.fpick { grid-template-columns: 200px minmax(0, 1fr) 300px; }
+.fpick__img { background: #f7f1e8; }
+.fpick__areas { position: sticky; top: 110px; }
+.atable { width: 100%; border-collapse: collapse; font-size: 15px; }
+.atable th, .atable td { text-align: left; padding: 11px 0; border-bottom: 1px solid rgba(176, 122, 82, .4); }
+.atable thead th { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--tan); font-weight: 400; }
+.atable tbody th { font-weight: 500; color: var(--brown); width: 44px; }
+.atable td { color: var(--ink); }
+.atable .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fpick__none { font-size: 16px; color: var(--ink); opacity: .8; }
+.tabs__list--flats button small { font-size: 11px; opacity: .7; margin-left: 4px; }
+.plan .plan__img { background: #f7f1e8; }
+
+.demo { background: var(--dark); padding: clamp(100px, 10vw, 150px) var(--gutter); }
+.demo__head { max-width: 700px; }
+.demo__head .lead { margin-top: 24px; }
+.demo__grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(20px, 3vw, 40px); margin-top: 56px; align-items: start; }
+.demo__plan { background: #f7f1e8; border: 0; }
+.demo__plan img { width: 100%; height: auto; }
+.demo__frame { overflow: hidden; border-radius: 4px; aspect-ratio: 3 / 2; }
+.demo__frame img { width: 100%; height: 100%; object-fit: cover; transition: opacity .35s var(--ease), transform 1.2s var(--ease); }
+.demo__frame.is-swapping img { opacity: 0; transform: scale(1.03); }
+.demo__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.demo__tabs button { height: 40px; padding: 0 18px; border-radius: 999px; font-size: 14px; color: var(--cream); border: 1px solid rgba(242, 231, 216, .35); transition: background-color .3s, color .3s; }
+.demo__tabs button:hover { background: rgba(242, 231, 216, .1); }
+.demo__tabs button.is-active { background: var(--cream); color: var(--dark); border-color: var(--cream); }
+
+.amen__count { margin: 28px auto 0; max-width: 560px; font-size: 18px; line-height: 1.5; color: var(--cream); opacity: .85; }
+.amen__count b { display: block; font-size: clamp(48px, 5vw, 72px); font-weight: 300; color: var(--glow); line-height: 1; margin-bottom: 8px; }
+.amen__features--4 { grid-template-columns: repeat(4, 1fr); }
+.amen__features--4 .amen__big img { aspect-ratio: 4 / 3; }
+.loc__map img { aspect-ratio: auto; }
+.loc__addr { margin-top: 24px; font-size: 17px; line-height: 1.5; color: var(--ink); max-width: 40ch; }
+.enquire__phone a { color: inherit; }
+
+@media (max-width: 1100px) {
+  .fpick { grid-template-columns: 180px minmax(0, 1fr); }
+  .fpick__areas { grid-column: 1 / -1; position: static; }
+  .facts--5 { grid-template-columns: repeat(3, 1fr); }
+  .amen__features--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 809px) {
+  .fpick { grid-template-columns: 1fr; }
+  .facts--5 { grid-template-columns: 1fr 1fr; }
+  .facts--5 div:last-child { display: none; }
+  .ofacts { grid-template-columns: 1fr; }
+  .demo__grid { grid-template-columns: 1fr; }
+  .amen__features--4 { grid-template-columns: 1fr 1fr; }
+  .tabs__list--flats { gap: 6px; }
+}
+
+/* Chairman */
+.chair { display: grid; grid-template-columns: minmax(180px, 280px) 1fr; gap: 28px; align-items: end; background: var(--dark); border-radius: 4px; overflow: hidden; padding: 32px 32px 0; color: var(--cream); }
+.chair__photo img { width: 100%; height: auto; display: block; }
+.chair__text { padding-bottom: 36px; }
+.chair__name { font-size: clamp(26px, 2.4vw, 36px); letter-spacing: -.02em; color: var(--white); }
+.chair__role { margin-top: 6px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--glow); }
+.chair__also { margin-top: 22px; font-size: 16px; line-height: 1.5; opacity: .85; }
+.chair__also b { font-weight: 500; color: var(--white); }
+.chair--about { margin: 64px var(--gutter) 0; max-width: 820px; }
+
+/* Vision + why choose us */
+.why { padding: clamp(100px, 11vw, 160px) var(--gutter); background: var(--ivory); }
+.why__vision { max-width: 900px; margin-bottom: clamp(80px, 9vw, 130px); }
+.why__quote { margin-top: 18px; font-family: var(--f-serif); font-style: italic; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.15; color: var(--brown); text-wrap: balance; }
+.why__head { max-width: 760px; }
+.why__list { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.why__list li { border: 1px solid rgba(176, 122, 82, .45); padding: 26px 22px 30px; transition: transform .5s var(--ease), background-color .4s; }
+.why__list li:hover { transform: translateY(-6px); background: #fff; }
+.why__list svg { width: 36px; height: 36px; color: var(--copper); }
+.why__list h3 { margin-top: 22px; font-size: 20px; font-weight: 400; letter-spacing: -.4px; color: var(--ink); }
+.why__list p { margin-top: 10px; font-size: 15px; line-height: 1.5; color: var(--ink); opacity: .8; }
+@media (max-width: 1100px) { .why__list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 809px) {
+  .chair { grid-template-columns: 1fr; padding: 24px 24px 0; }
+  .chair__photo { max-width: 260px; margin: 0 auto; }
+  .chair__text { text-align: center; padding-bottom: 28px; }
+  .chair--about { margin: 48px 24px 0; }
+  .why__list { grid-template-columns: 1fr; }
+}

@@ -1,6 +1,6 @@
 # Vedant Developers & Builders — website and brochure
 
-Static website (plain HTML, CSS and JavaScript, no build step) plus a 24-page sales brochure.
+Static website (plain HTML, CSS and JavaScript, no build step) plus the Nature’s Nest sales brochure (PDF).
 
 ## Pages
 
@@ -9,8 +9,7 @@ Static website (plain HTML, CSS and JavaScript, no build step) plus a 24-page sa
 | `index.html` | Home page |
 | `about.html` | About Us: story, founders, philosophy, promise |
 | `project.html` | Project website for **Vedant Nature’s Nest**, Belagavi: overview, floor plans (floor picker + wing layouts), amenities, location advantages, construction updates, gallery, 360° virtual tour, enquiry form, brochure download |
-| `brochure/index.html` | Sales brochure source (24 A4 landscape pages) |
-| `brochure/Vedant-Natures-Nest-Brochure.pdf` | Exported brochure PDF (download link on the project page) |
+| `brochure/Vedant-Natures-Nest-Brochure.pdf` | The official sales brochure, linked from the "Download Brochure" button. Replace this file to update it. |
 
 Shared files: `css/style.css` (all styles) and `js/main.js` (animations and interactions). Every page has the floating WhatsApp button.
 
@@ -28,7 +27,7 @@ To publish, upload the whole folder to any static host (GitHub Pages, Netlify, V
 At the top of the "Project page" block:
 
 ```js
-const WHATSAPP_NUMBER = '910000000000';  // your WhatsApp number: country code + number, digits only
+const WHATSAPP_NUMBER = '919660699108';  // your WhatsApp number: country code + number, digits only
 const GOOGLE_SHEET_URL = '';             // your Google Sheet web app URL (see google-sheet/README.md)
 ```
 
@@ -41,7 +40,7 @@ How the enquiry form works:
 ## Content checklist (placeholders to replace)
 
 **Everywhere**
-- [ ] Phone, email, office/site address (header menu, footer, project enquiry section, brochure back cover)
+- [x] Phone numbers and address (from the brochure). Email address not yet added.
 - [ ] Social media links (`href="#"`)
 - [x] Logo (`images/brand/`). For the sharpest result, ask your designer for an SVG or a larger transparent PNG and replace the files with the same names.
 
@@ -49,17 +48,15 @@ How the enquiry form works:
 - [x] Project name (Vedant Nature’s Nest) and location (Belagavi), taken from the architect's drawings — change if the marketing name differs
 - [ ] Possession date
 - [ ] K-RERA registration number and QR code (Karnataka RERA, rera.karnataka.gov.in)
-- [ ] Carpet area of each flat (A1–A3, B1–B2, C1–C2) — the drawings give room sizes but not flat areas
-- [x] Building: 3 wings (A, B, C), stilt + 7 floors + amenity terrace, 7 homes per floor, 2 & 3 BHK
-- [x] Amenity list: the 8 terrace amenities from the terrace floor plan
-- [ ] Travel times on the location list (`__ min`) and the Google Maps link
+- [x] Flat sizes A1–C2 for the 1st, typical and 5th floors (from the brochure; stated as sq.ft., not specified as carpet or super built-up)
+- [x] Building: G+7, 49 homes, 2, 2.5 & 3 BHK, 30 guntas (32,670 sq.ft.)
+- [x] Amenities: the eight named in the brochure ("10+ lifestyle amenities")
+- [x] Location: map and nearby landmarks with distances (from the brochure)
 - [ ] Construction updates (dates, text, photos) and progress percentages
-- [ ] Payment plan (the brochure shows a sample construction-linked plan)
-- [ ] Specifications (the brochure shows indicative specifications)
-- [ ] 360° virtual tour: replace `images/pano-*.jpg` with real equirectangular/360 photos, or link a Matterport / YouTube 360 tour
+- [x] Demo flat: B1 plan and interior renders replace the earlier virtual tour
 
 **About / Home**
-- [ ] Founder photos (`team-1.jpg` = Yash Parab, `team-2.jpg` = Pandhari Parab, `journal-1.jpg` = Aarti Parab)
+- [x] Chairman photo (Mr. Pandhari Parab). Add photos of Yash and Aarti Parab if wanted.
 
 ## Images
 
@@ -71,20 +68,15 @@ How the enquiry form works:
 | `images/building/blueprint.jpg` | Line drawing generated from the render, used for the "blueprint to building" hero animation |
 | `images/building/detail-*.jpg` | Close-up crops of the render (rooftop, balconies, greens, entrance, facade, street) |
 | `images/renders/*.jpg` | Your rooftop amenity renders (café, open-air theatre, kids' area, aerial) and close-up crops of them (`crop-*.jpg`) |
-| `images/photos/*.jpg` | Real photos from Unsplash (free licence, commercial use allowed). They are **representative** interiors, amenities and lifestyle images, labelled as such on the site. See `CREDITS.md`. |
-| `images/plans/real/*.jpg` | Real floor plans from the architect's presentation set: `stilt`, `floor-1`…`floor-7`, `terrace`, and wing flat layouts `wing-{a,b,c}-{1,2,5}` (1st, 2nd and 5th floor versions) |
+| `images/plans/flats/*.jpg` | 3D floor plans (parking, 1st, typical 2–4 & 6–7, 5th, terrace) and flat plans A1–C2 plus the B1 demo flat, from the sales brochure |
+| `images/booklet/*.jpg` | Renders, B1 demo-flat interiors, amenity renders, chairman photo and location map from the sales brochure |
 | `images/terrace/view-*.jpg` | The architect's 3D views of the terrace (gym, banquet hall, play area, pet area…) |
-| `images/plans/location-map.svg` | Placeholder location map — replace with a real map |
 | `images/update-*.jpg` | Placeholder construction-update images — replace with real site photos |
 
 When you get more renders (interiors, clubhouse, pool), drop them in and swap the file names in the HTML. If you replace `render.jpg`, regenerate `blueprint.jpg` too (or ask for it to be regenerated).
 
 The brochure uses PNG copies of the plans in `brochure/plans/` — replace those too.
 
-## Updating the brochure
-
-1. Edit `brochure/index.html` (text, tables, images).
-2. Re-export the PDF: run a local server (`python3 -m http.server 8000`), then `node tools/export-brochure.js` (needs Playwright), or open the page in Chrome → Print → Save as PDF with "Background graphics" on, A4 landscape, no margins.
 
 ## Animations
 

@@ -151,7 +151,7 @@
    ========================================================= */
 (() => {
   // Your WhatsApp number with country code, digits only (e.g. 919876543210)
-  const WHATSAPP_NUMBER = '910000000000';
+  const WHATSAPP_NUMBER = '919660699108';
   // Google Sheet web app URL (see google-sheet/README.md). Enquiries are added as rows in your sheet.
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzV_wKDRDPDC78u9eWCTyfiyc95N2C7xf4aM5RHN2HNif-r6qmszKUq6eR3QyF0o74B5g/exec';
 
@@ -222,15 +222,28 @@
   document.querySelectorAll('[data-fpick]').forEach(root => {
     const frame = root.querySelector('.fpick__img');
     const name = root.querySelector('.fpick__name');
-    const sub = root.querySelector('.fpick__caption span');
+    const tables = [...root.querySelectorAll('.fpick__table')];
+    const none = root.querySelector('.fpick__none');
     const btns = [...root.querySelectorAll('.fpick__btn')];
     btns.forEach(b => {
       const pre = new Image(); pre.src = b.dataset.src;
       b.addEventListener('click', () => {
         btns.forEach(o => { o.classList.toggle('is-active', o === b); o.setAttribute('aria-pressed', String(o === b)); });
-        swapImg(frame, b.dataset.src, `${b.dataset.name} plan`);
-        name.textContent = b.dataset.name;
-        sub.textContent = b.dataset.name === 'Stilt parking' ? 'Covered parking for residents' : b.dataset.name === 'Amenity terrace' ? 'Eight shared amenities' : 'Wings A, B and C · 7 homes';
+        swapImg(frame, b.dataset.src, `${b.textContent.trim()} plan`);
+        name.innerHTML = b.dataset.name;
+        tables.forEach(t => { t.hidden = t.dataset.for !== b.dataset.table; });
+        if (none) none.hidden = !!b.dataset.table;
+      });
+    });
+  });
+  document.querySelectorAll('[data-demo]').forEach(root => {
+    const frame = root.querySelector('.demo__frame');
+    const btns = [...root.querySelectorAll('.demo__tabs button')];
+    btns.forEach(b => {
+      const pre = new Image(); pre.src = b.dataset.src;
+      b.addEventListener('click', () => {
+        btns.forEach(o => o.classList.toggle('is-active', o === b));
+        swapImg(frame, b.dataset.src, b.textContent.trim());
       });
     });
   });
