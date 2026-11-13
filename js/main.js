@@ -151,7 +151,7 @@
    ========================================================= */
 (() => {
   // Your WhatsApp number with country code, digits only (e.g. 919876543210)
-  const WHATSAPP_NUMBER = '919660699108';
+  const WHATSAPP_NUMBER = '919036534528';
   // Google Sheet web app URL (see google-sheet/README.md). Enquiries are added as rows in your sheet.
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzV_wKDRDPDC78u9eWCTyfiyc95N2C7xf4aM5RHN2HNif-r6qmszKUq6eR3QyF0o74B5g/exec';
 

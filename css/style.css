@@ -1728,3 +1728,35 @@ body.is-leaving .loader { clip-path: inset(0 0 0 0); transition-duration: .7s; }
   .fpoly.is-selected { animation: none !important; }
 }
 @media (min-width: 810px) { .fdrawer { top: 54px; max-height: calc(100% - 54px); } }
+
+/* Nature's Nest loader logo */
+.loader__mark--nn { width: clamp(120px, 13vw, 170px); }
+.loader__word--nn { width: clamp(220px, 24vw, 320px); }
+.loader.is-quick .loader__word--nn { display: block; }
+
+/* Directors */
+.directors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.director { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 4px; background: var(--dark); color: var(--cream); transition: transform .5s var(--ease); }
+.director:hover { transform: translateY(-4px); }
+.director__ini { flex: none; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(243, 197, 138, .45); font-family: var(--f-serif); font-style: italic; font-size: 26px; color: var(--glow); }
+.director__name { font-size: 19px; color: #fff; letter-spacing: -.01em; }
+.director__role { margin-top: 4px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--glow); }
+.chair--about + .directors { margin: 14px var(--gutter) 0; max-width: 820px; }
+
+/* Footer phones */
+.footer__phones { margin-top: 10px; font-size: 28px; letter-spacing: -.6px; }
+.footer__phones a { margin-top: 0 !important; font-size: inherit !important; }
+.footer__phones span { margin: 0 6px; opacity: .5; }
+
+/* Amenity list thumbnails (phones only; desktop uses the floating preview) */
+.alist__thumb { display: none; }
+@media (max-width: 809px) {
+  .alist__rows li { grid-template-columns: 96px 1fr; grid-template-rows: auto auto; column-gap: 16px; row-gap: 4px; align-items: center; }
+  .alist__thumb { display: block; grid-row: 1 / span 2; width: 96px; height: 72px; object-fit: cover; border-radius: 4px; }
+  .alist__name { font-size: 22px; align-self: end; }
+  .alist__for { align-self: start; }
+  .directors { grid-template-columns: 1fr; }
+  .chair--about + .directors { margin: 14px 24px 0; }
+  .footer__phones { font-size: 22px; }
+}
+@media (min-width: 810px) { .founders2 .directors { grid-column: 2; margin-top: -40px; } }
